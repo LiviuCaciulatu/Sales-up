@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import slidesData from '@/public/assets/json/slidesRo.json';
 import style from './style.module.scss';
 import Timer from '../Timer/Timer';
-import { useTranslation } from 'next-i18next';
 
 type Answer = {
   id: number;
@@ -29,12 +28,13 @@ type Score = {
   total: number;
 };
 
-const normalizedSlides: Slide[] = slidesData.map((slide: any) => ({
+// Use the correct type for slidesData and answers, and ensure all ids are numbers
+const normalizedSlides: Slide[] = (slidesData as Array<{ id: number | string; question: string; answers?: Array<{ id: number | string; text: string; category: string; points: number | string; next: number | string; }>; }> ).map((slide) => ({
   id: Number(slide.id),
   question: slide.question,
   answers:
     Array.isArray(slide.answers) && slide.answers.length > 0
-      ? slide.answers.map((answer: any) => ({
+      ? slide.answers.map((answer) => ({
           id: Number(answer.id),
           text: answer.text,
           category: answer.category,
@@ -53,7 +53,6 @@ const getRatingLabel = (total: number): string => {
 };
 
 const Game = () => {
-  const { t } = useTranslation();
   const [currentId, setCurrentId] = useState<number>(1);
   const [score, setScore] = useState<Score>({
     greeting: 0,
@@ -87,7 +86,7 @@ const Game = () => {
         });
       }
     }
-  }, [currentSlide]);
+  }, [currentSlide, elapsedTime, timerActive]);
 
   const handleTimerStop = (remaining: number) => {
     const timeSpent = 300 - remaining;
@@ -149,7 +148,7 @@ const Game = () => {
       <div className={style.subContainer}>
 
         {Array.isArray(currentSlide.answers) && currentSlide.answers.length > 0 && (
-          <Timer className={style.timer} isActive={timerActive} onStop={handleTimerStop} resetKey={timerResetKey} />
+          <Timer isActive={timerActive} onStop={handleTimerStop} resetKey={timerResetKey} />
         )}
         <h2 className={style.question}>{currentSlide.question}</h2>
 
@@ -171,7 +170,7 @@ const Game = () => {
               <span style={{ fontWeight: 600 }}>Timp parcurs: </span>
               <span style={{ fontWeight: 600 }}>{elapsedTime !== null ? `${Math.floor(elapsedTime / 60).toString().padStart(2, '0')}:${(elapsedTime % 60).toString().padStart(2, '0')}` : '--:--'}</span>
               {timeUp && (
-                <div style={{ color: 'red', fontWeight: 700, marginTop: 8 }}>{t('times_up')}</div>
+                <div style={{ color: 'red', fontWeight: 700, marginTop: 8 }}>Timpul a expirat!</div>
               )}
             </div>
             <div className={style.points}>

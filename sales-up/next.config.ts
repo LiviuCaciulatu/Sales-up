@@ -1,8 +1,15 @@
-import type { NextConfig } from 'next';
-import { i18n } from './next-i18next.config';
+import path from "path";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  i18n,
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@style": path.resolve(__dirname, "style"),
+    };
+    return config;
+  },
+  output: "export",
 };
 
 export default nextConfig;

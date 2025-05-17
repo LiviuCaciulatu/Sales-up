@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 type TimerProps = {
   isActive: boolean;
   onStop?: (elapsed: number) => void;
-  resetKey?: any;
+  resetKey?: number;
 };
 
 const formatTime = (seconds: number) => {
@@ -44,7 +44,7 @@ const Timer: React.FC<TimerProps> = ({ isActive, onStop, resetKey }) => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isActive, resetKey]);
+  }, [isActive, resetKey, onStop, remaining]);
 
   return (
   <div
