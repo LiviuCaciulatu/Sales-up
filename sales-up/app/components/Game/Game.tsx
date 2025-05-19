@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import slidesData from '@/public/assets/json/slidesRo.json';
 import style from './style.module.scss';
 import Timer from '../Timer/Timer';
+import { useRouter } from 'next/navigation';
 
 type Answer = {
   id: number;
@@ -27,6 +28,15 @@ type Score = {
   calificare: number;
   total: number;
 };
+
+// Add a type for user answers
+interface UserAnswer {
+  slideId: number;
+  question: string;
+  selectedAnswer: string;
+  category: string;
+  points: number;
+}
 
 // Use the correct type for slidesData and answers, and ensure all ids are numbers
 const normalizedSlides: Slide[] = (slidesData as Array<{ id: number | string; question: string; answers?: Array<{ id: number | string; text: string; category: string; points: number | string; next: number | string; }>; }> ).map((slide) => ({
@@ -53,6 +63,7 @@ const getRatingLabel = (total: number): string => {
 };
 
 const Game = () => {
+  const router = useRouter();
   const [currentId, setCurrentId] = useState<number>(1);
   const [score, setScore] = useState<Score>({
     greeting: 0,
@@ -66,6 +77,7 @@ const Game = () => {
   const [timerResetKey, setTimerResetKey] = useState(0);
   const [elapsedTime, setElapsedTime] = useState<number | null>(null);
   const [timeUp, setTimeUp] = useState(false);
+  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
 
   const currentSlide = normalizedSlides.find((slide) => slide.id === currentId);
 
@@ -119,6 +131,22 @@ const Game = () => {
 
     updatedScore.total += answer.points;
 
+    // Save the user's answer
+    setUserAnswers((prev) => {
+      const updated = [
+        ...prev,
+        {
+          slideId: currentSlide?.id || 0,
+          question: currentSlide?.question || '',
+          selectedAnswer: answer.text,
+          category: answer.category,
+          points: answer.points,
+        },
+      ];
+      console.log('User Answers:', updated);
+      return updated;
+    });
+
     setScore(updatedScore);
     setCurrentId(answer.next);
   };
@@ -136,6 +164,7 @@ const Game = () => {
     setTimerResetKey((k) => k + 1);
     setElapsedTime(null);
     setTimeUp(false);
+    setUserAnswers([]);
   };
 
   if (!currentSlide) {
@@ -187,9 +216,7 @@ const Game = () => {
                 <p className={style.rating}>
                   Calificativul tău este: <strong>{getRatingLabel(score.total)}</strong>
                 </p>
-                <p className={style.totalLine}>
-                  Scor total abilități vânzare: {score.total}/400
-                </p>
+
               </div>
             </div>
             <div className={style.actions}>
@@ -207,9 +234,31 @@ const Game = () => {
               <p>În total, ai adus magazinului suma de ... USD</p>
               <p>Calificativul tău este: <strong>{getRatingLabel(score.total)}</strong></p>
               <p>Ai făcut ... vânzări</p>
-             <button className={style.btn} onClick={resetGame}>
-              Incepe o nouă zi
-            </button>
+              <table style={{ width: '100%', marginTop: 24, borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Slide</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Întrebare</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Răspuns</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Categorie</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Puncte</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userAnswers.map((ua, idx) => (
+                    <tr key={idx}>
+                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.slideId}</td>
+                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.question}</td>
+                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.selectedAnswer}</td>
+                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.category}</td>
+                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.points}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <button className={style.btn} onClick={resetGame}>
+                Incepe o nouă zi
+              </button>
             </div>
           </div>
         ) : (
@@ -225,6 +274,25 @@ const Game = () => {
             </button>
           </div>
         )}
+      </div>
+      <div className={style.footer}>
+        <a
+          href="https://cleancodeit.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={style.copyright}
+          style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+        >
+          &copy; {new Date().getFullYear()}  CleanCodeIT
+        </a>
+        <div className={style.logo}>
+          <img
+            src="/assets/svg/logo-cc.svg"
+            alt="CleanCodeIT Logo"
+            style={{ maxWidth: '60px', height: 'auto', cursor: 'pointer' }}
+            onClick={() => router.push('/all-questions')}
+          />
+        </div>
       </div>
     </div>
   );

@@ -9,5 +9,10 @@ export default function Home() {
   const handleStart = () => {
     router.push('/game');
   };
-  return <Start onStart={handleStart} />;
+  return (
+    <>
+      <Start onStart={handleStart} />
+      <a href="/all-questions" style={{ display: 'none' }}>All Questions</a>
+    </>
+  );
 }
