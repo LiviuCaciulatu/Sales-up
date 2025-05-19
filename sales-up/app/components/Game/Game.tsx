@@ -5,6 +5,7 @@ import slidesData from '@/public/assets/json/slidesRo.json';
 import style from './style.module.scss';
 import Timer from '../Timer/Timer';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 type Answer = {
   id: number;
@@ -259,6 +260,9 @@ const Game = () => {
               <button className={style.btn} onClick={resetGame}>
                 Incepe o nouă zi
               </button>
+              <button className={style.btn} onClick={() => router.push('/menu')}>
+                Meniu
+              </button>
             </div>
           </div>
         ) : (
@@ -286,9 +290,11 @@ const Game = () => {
           &copy; {new Date().getFullYear()}  CleanCodeIT
         </a>
         <div className={style.logo}>
-          <img
+          <Image
             src="/assets/svg/logo-cc.svg"
             alt="CleanCodeIT Logo"
+            width={60}
+            height={60}
             style={{ maxWidth: '60px', height: 'auto', cursor: 'pointer' }}
             onClick={() => router.push('/all-questions')}
           />

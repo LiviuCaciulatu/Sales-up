@@ -1,0 +1,37 @@
+.container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  background: #fff;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:last-child {
+  margin-bottom: 0;
+}
+
+.btn:hover {
+  background: #1565c0;
+}
