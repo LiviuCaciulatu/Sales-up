@@ -1,0 +1,90 @@
+[
+    {
+  "id": 1,
+  "question": "Un cliente ha entrado en mi tienda. Está a unos 6 metros de mí y se dirige hacia la sección de lavadoras. ¿Cuál es la mejor acción a tomar?",
+  "answers": [
+    {
+      "id": 1,
+      "text": "Lo observo y espero a ver si viene a pedirme algo, si es el caso.",
+      "category": "greeting",
+      "points": 3,
+      "next": 23
+    },
+    {
+      "id": 2,
+      "text": "No necesito mirarlo, continúo ordenando el estante donde estoy, estoy seguro de que me ha visto.",
+      "category": "greeting",
+      "points": 1,
+      "next": 23
+    },
+    {
+      "id": 3,
+      "text": "Voy a buscar a mi compañero que está en su descanso.",
+      "category": "greeting",
+      "points": 0,
+      "next": 24
+    },
+    {
+      "id": 4,
+      "text": "Me acerco al cliente.",
+      "category": "greeting",
+      "points": 5,
+      "next": 2
+    }
+  ]
+},
+{
+  "id": 23,
+  "question": "Después de mirar varios productos en la sección de lavadoras, el cliente se dirige hacia mí. ¿Cuál es la siguiente mejor acción?",
+  "answers": [
+    {
+      "id": 1,
+      "text": "Nada, espero a ver qué quiere el cliente.",
+      "category": "greeting",
+      "points": 1,
+      "next": 4
+    },
+    {
+      "id": 2,
+      "text": "Sigo ordenando el estante, confío en que me ha visto.",
+      "category": "greeting",
+      "points": 1,
+      "next": 4
+    },
+    {
+      "id": 3,
+      "text": "Voy a llamar a mi compañero que está en su descanso.",
+      "category": "greeting",
+      "points": 0,
+      "next": 24
+    },
+    {
+      "id": 4,
+      "text": "Le sonrío y le pregunto cómo puedo ayudarle.",
+      "category": "greeting",
+      "points": 5,
+      "next": 5
+    }
+  ]
+},
+{
+  "id": 21,
+  "question": "Has terminado una reunión de ventas. Dificultad del cliente: ganso / profesional / cliente del infierno. ¡Felicidades!"
+},
+{
+  "id": 22,
+  "question": "Tus puntuaciones son:"
+},
+{
+  "id": 38,
+  "question": "Hoy:"
+},
+{
+  "id": 24,
+  "question": "Estuve fuera menos de 2 minutos. Pero durante ese tiempo, el cliente salió de la tienda."
+}
+
+
+
+
+]

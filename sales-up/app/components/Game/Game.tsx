@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
-import slidesData from '@/public/assets/json/slidesRo.json';
+import React, { useState, useEffect } from 'react';
 import style from './style.module.scss';
 import Timer from '../Timer/Timer';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useTranslation } from '@/app/context/useTranslation';
+import { supabase } from '@/utils/supabaseClient';
+import Navigation from './Navigation';
 
 type Answer = {
   id: number;
@@ -39,21 +41,15 @@ interface UserAnswer {
   points: number;
 }
 
-// Use the correct type for slidesData and answers, and ensure all ids are numbers
-const normalizedSlides: Slide[] = (slidesData as Array<{ id: number | string; question: string; answers?: Array<{ id: number | string; text: string; category: string; points: number | string; next: number | string; }>; }> ).map((slide) => ({
-  id: Number(slide.id),
-  question: slide.question,
-  answers:
-    Array.isArray(slide.answers) && slide.answers.length > 0
-      ? slide.answers.map((answer) => ({
-          id: Number(answer.id),
-          text: answer.text,
-          category: answer.category,
-          points: Number(answer.points),
-          next: Number(answer.next),
-        }))
-      : undefined,
-}));
+// Define slide files for each language
+const slidesFiles: Record<string, string> = {
+  ro: '/assets/json/slidesRo.json',
+  fr: '/assets/json/slidesFr.json',
+  de: '/assets/json/slidesDe.json',
+  it: '/assets/json/slidesIt.json',
+  es: '/assets/json/slidesEs.json',
+  en: '/assets/json/slidesEn.json',
+};
 
 const getRatingLabel = (total: number): string => {
   if (total <= 15) return 'Lost in the store';
@@ -65,6 +61,8 @@ const getRatingLabel = (total: number): string => {
 
 const Game = () => {
   const router = useRouter();
+  const { t, language } = useTranslation();
+  const [slidesData, setSlidesData] = useState<Slide[]>([]);
   const [currentId, setCurrentId] = useState<number>(1);
   const [score, setScore] = useState<Score>({
     greeting: 0,
@@ -79,6 +77,44 @@ const Game = () => {
   const [elapsedTime, setElapsedTime] = useState<number | null>(null);
   const [timeUp, setTimeUp] = useState(false);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
+
+  useEffect(() => {
+    const loadSlides = async () => {
+      const file = slidesFiles[language] || slidesFiles['ro'];
+      const res = await fetch(file);
+      const data: Slide[] = await res.json();
+      setSlidesData(data);
+      setCurrentId(1);
+      setScore({
+        greeting: 0,
+        proposal: 0,
+        closing: 0,
+        csus: 0,
+        calificare: 0,
+        total: 0,
+      });
+      setElapsedTime(null);
+      setTimeUp(false);
+      setUserAnswers([]);
+    };
+    loadSlides();
+  }, [language]);
+
+  // Remove all 'as any' and 'as Array<...>' casts, rely on Slide[]
+  const normalizedSlides: Slide[] = slidesData.map((slide: Slide) => ({
+    id: Number(slide.id),
+    question: slide.question,
+    answers:
+      Array.isArray(slide.answers) && slide.answers.length > 0
+        ? slide.answers.map((answer: Answer) => ({
+            id: Number(answer.id),
+            text: answer.text,
+            category: answer.category,
+            points: Number(answer.points),
+            next: Number(answer.next),
+          }))
+        : undefined,
+  }));
 
   const currentSlide = normalizedSlides.find((slide) => slide.id === currentId);
 
@@ -144,7 +180,6 @@ const Game = () => {
           points: answer.points,
         },
       ];
-      console.log('User Answers:', updated);
       return updated;
     });
 
@@ -168,20 +203,46 @@ const Game = () => {
     setUserAnswers([]);
   };
 
+  // Save session to Supabase when reaching slide 38
+  useEffect(() => {
+    const saveSession = async () => {
+      if (currentSlide?.id !== 38) return;
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+      try {
+        await supabase.from('user_sessions').insert([
+          {
+            user_id: user.id, // or user.email if that's your PK
+            date: new Date().toISOString(),
+            duration: elapsedTime ?? null,
+            score,
+            rating: getRatingLabel(score.total),
+            sales_made: null, // or calculate if you have this value
+            game_summary: userAnswers
+          }
+        ]);
+      } catch (e) {
+        console.error('Failed to save session:', e);
+      }
+    };
+    saveSession();
+    // Only run when slide 38 is reached
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentSlide?.id]);
+
   if (!currentSlide) {
     return <div>Question not found.</div>;
   }
 
   return (
     <div className={style.container}>
-      <p className={style.slideId}>Slide: {currentSlide.id}</p>
+      <Navigation goToSlide38={() => setCurrentId(38)} onRestartGame={resetGame} />
+      <p className={style.slideId}>{t('slide')}: {currentSlide.id}</p>
       <div className={style.subContainer}>
-
         {Array.isArray(currentSlide.answers) && currentSlide.answers.length > 0 && (
           <Timer isActive={timerActive} onStop={handleTimerStop} resetKey={timerResetKey} />
         )}
         <h2 className={style.question}>{currentSlide.question}</h2>
-
         {Array.isArray(currentSlide.answers) && currentSlide.answers.length > 0 ? (
           <div className={style.answer} key={`answers-${currentSlide.id}`}>
             {currentSlide.answers.map((answer) => (
@@ -197,52 +258,51 @@ const Game = () => {
         ) : currentSlide.id === 22 ? (
           <>
             <div style={{ textAlign: 'center', marginBottom: 16 }}>
-              <span style={{ fontWeight: 600 }}>Timp parcurs: </span>
+              <span style={{ fontWeight: 600 }}>{t('time_spent')}: </span>
               <span style={{ fontWeight: 600 }}>{elapsedTime !== null ? `${Math.floor(elapsedTime / 60).toString().padStart(2, '0')}:${(elapsedTime % 60).toString().padStart(2, '0')}` : '--:--'}</span>
               {timeUp && (
-                <div style={{ color: 'red', fontWeight: 700, marginTop: 8 }}>Timpul a expirat!</div>
+                <div style={{ color: 'red', fontWeight: 700, marginTop: 8 }}>{t('time_expired')}</div>
               )}
             </div>
             <div className={style.points}>
               <div className={style.pointsContainer}>
-                <h3 className={style.score}>Scor final:</h3>
+                <h3 className={style.score}>{t('final_score')}:</h3>
                 <ul className={style.scoreList}>
-                  <li className={style.scoreElement}>Greeting: {score.greeting}</li>
-                  <li className={style.scoreElement}>Proposal: {score.proposal}</li>
-                  <li className={style.scoreElement}>Closing: {score.closing}</li>
-                  <li className={style.scoreElement}>CSUS: {score.csus}</li>
-                  <li className={style.scoreElement}>Calificare: {score.calificare}</li>
-                  <li className={style.total}>Total: {score.total}</li>
+                  <li className={style.scoreElement}>{t('greeting')}: {score.greeting}</li>
+                  <li className={style.scoreElement}>{t('proposal')}: {score.proposal}</li>
+                  <li className={style.scoreElement}>{t('closing')}: {score.closing}</li>
+                  <li className={style.scoreElement}>{t('csus')}: {score.csus}</li>
+                  <li className={style.scoreElement}>{t('calificare')}: {score.calificare}</li>
+                  <li className={style.total}>{t('total')}: {score.total}</li>
                 </ul>
                 <p className={style.rating}>
-                  Calificativul tău este: <strong>{getRatingLabel(score.total)}</strong>
+                  {t('your_rating')}: <strong>{getRatingLabel(score.total)}</strong>
                 </p>
-
               </div>
             </div>
             <div className={style.actions}>
               <button className={style.btn} onClick={resetGame}>
-                Start over
+                {t('start_over')}
               </button>
               <button className={style.btn} onClick={() => setCurrentId(38)}>
-                Close the day
+                {t('close_the_day')}
               </button>
             </div>
           </>
         ) : currentSlide.id === 38 ? (
           <div className={style.points}>
             <div className={style.pointsContainer}>
-              <p>În total, ai adus magazinului suma de ... USD</p>
-              <p>Calificativul tău este: <strong>{getRatingLabel(score.total)}</strong></p>
-              <p>Ai făcut ... vânzări</p>
+              <p>{t('total_brought_to_store')}</p>
+              <p>{t('your_rating')}: <strong>{getRatingLabel(score.total)}</strong></p>
+              <p>{t('sales_made')}</p>
               <table style={{ width: '100%', marginTop: 24, borderCollapse: 'collapse' }}>
                 <thead>
                   <tr>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Slide</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Întrebare</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Răspuns</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Categorie</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>Puncte</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('slide')}</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('question')}</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('answer')}</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('category')}</th>
+                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('points')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -258,23 +318,23 @@ const Game = () => {
                 </tbody>
               </table>
               <button className={style.btn} onClick={resetGame}>
-                Incepe o nouă zi
+                {t('start_new_day')}
               </button>
               <button className={style.btn} onClick={() => router.push('/menu')}>
-                Meniu
+                {t('menu')}
               </button>
             </div>
           </div>
         ) : (
           <div className={style.actions}>
             <button className={style.btn} onClick={() => setCurrentId(22)}>
-              Calculează punctaj
+              {t('calculate_score')}
             </button>
             <button className={style.btn} onClick={resetGame}>
-              Start over
+              {t('start_over')}
             </button>
             <button className={style.btn} onClick={() => setCurrentId(38)}>
-              Close the day
+              {t('close_the_day')}
             </button>
           </div>
         )}

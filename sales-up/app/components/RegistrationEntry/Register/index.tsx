@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { supabase } from '../../../../utils/supabaseClient';
 import AuthForm from '../../AuthForm';
 import style from './style.module.scss';
+import { useTranslation } from '../../../context/useTranslation';
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -17,6 +18,7 @@ const Register = () => {
     password: '',
   });
   const [error, setError] = useState('');
+  const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -25,7 +27,6 @@ const Register = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    // Register user with Supabase Auth (only email and password)
     const { data, error: signUpError } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
@@ -50,30 +51,32 @@ const Register = () => {
       setError(profileError.message);
       return;
     }
-    window.location.href = '/menu';
+    window.location.href = '/registration';
   };
 
   return (
     <div className={style.container}>
-      <h2 className={style.title}>Register</h2>
+      <h2 className={style.title}>{t('register')}</h2>
       <AuthForm
-        mode="register"
         error={error}
         onSubmit={handleSubmit}
-        buttonText="Register"
+        buttonText={t('register')}
         renderFields={() => (
           <>
-            <input className={style.input} name="first_name" placeholder="First Name" value={form.first_name} onChange={handleChange} required />
-            <input className={style.input} name="last_name" placeholder="Last Name" value={form.last_name} onChange={handleChange} required />
-            <input className={style.input} name="username" placeholder="Username" value={form.username} onChange={handleChange} required />
-            <input className={style.input} name="date_of_birth" type="date" placeholder="Date of Birth" value={form.date_of_birth} onChange={handleChange} required />
-            <input className={style.input} name="country" placeholder="Country" value={form.country} onChange={handleChange} required />
-            <input className={style.input} name="company" placeholder="Company (optional)" value={form.company} onChange={handleChange} />
-            <input className={style.input} name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required />
-            <input className={style.input} name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required />
+            <input className={style.input} name="first_name" placeholder={t('first_name')} value={form.first_name} onChange={handleChange} required />
+            <input className={style.input} name="last_name" placeholder={t('last_name')} value={form.last_name} onChange={handleChange} required />
+            <input className={style.input} name="username" placeholder={t('username')} value={form.username} onChange={handleChange} required />
+            <input className={style.input} name="date_of_birth" type="date" placeholder={t('date_of_birth')} value={form.date_of_birth} onChange={handleChange} required />
+            <input className={style.input} name="country" placeholder={t('country')} value={form.country} onChange={handleChange} required />
+            <input className={style.input} name="company" placeholder={t('company_optional')} value={form.company} onChange={handleChange} />
+            <input className={style.input} name="email" type="email" placeholder={t('email')} value={form.email} onChange={handleChange} required />
+            <input className={style.input} name="password" type="password" placeholder={t('password')} value={form.password} onChange={handleChange} required />
           </>
         )}
+        formClassName={style.form}
+        buttonClassName={style.btn}
       />
+      <button className={style.btn} style={{ marginTop: 16 }} onClick={() => window.location.href = '/'}>{t('back')}</button>
       {error && <div className={style.error}>{error}</div>}
     </div>
   );

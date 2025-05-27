@@ -1,0 +1,86 @@
+[
+    {
+  "id": 1,
+  "question": "Un cliente è entrato nel mio negozio. Si trova a circa 6 metri da me e si sta dirigendo verso il reparto lavatrici. Qual è la migliore azione da intraprendere?",
+  "answers": [
+    {
+      "id": 1,
+      "text": "Lo guardo e aspetto di vedere se viene a chiedermi qualcosa, se è il caso.",
+      "category": "greeting",
+      "points": 3,
+      "next": 23
+    },
+    {
+      "id": 2,
+      "text": "Non c'è bisogno di guardarlo, continuo a sistemare lo scaffale dove mi trovo, sono sicuro che mi ha visto.",
+      "category": "greeting",
+      "points": 1,
+      "next": 23
+    },
+    {
+      "id": 3,
+      "text": "Vado a cercare il mio collega che è in pausa.",
+      "category": "greeting",
+      "points": 0,
+      "next": 24
+    },
+    {
+      "id": 4,
+      "text": "Mi avvicino al cliente.",
+      "category": "greeting",
+      "points": 5,
+      "next": 2
+    }
+  ]
+},
+{
+  "id": 23,
+  "question": "Dopo aver guardato diversi prodotti nel reparto lavatrici, il cliente si dirige verso di me. Qual è la prossima azione migliore?",
+  "answers": [
+    {
+      "id": 1,
+      "text": "Niente, aspetto di vedere cosa vuole il cliente.",
+      "category": "greeting",
+      "points": 1,
+      "next": 4
+    },
+    {
+      "id": 2,
+      "text": "Continuo a sistemare lo scaffale, sono sicuro che mi ha visto.",
+      "category": "greeting",
+      "points": 1,
+      "next": 4
+    },
+    {
+      "id": 3,
+      "text": "Vado a chiamare il mio collega che è in pausa.",
+      "category": "greeting",
+      "points": 0,
+      "next": 24
+    },
+    {
+      "id": 4,
+      "text": "Sorrido e gli chiedo come posso aiutarlo.",
+      "category": "greeting",
+      "points": 5,
+      "next": 5
+    }
+  ]
+},
+{
+  "id": 21,
+  "question": "Hai terminato un incontro di vendita. Difficoltà del cliente: oca / professionista / cliente infernale. Congratulazioni!"
+},
+{
+  "id": 22,
+  "question": "I tuoi punteggi sono:"
+},
+{
+  "id": 38,
+  "question": "Oggi:"
+},
+{
+  "id": 24,
+  "question": "Sono stato via per meno di 2 minuti. Ma in quel tempo, il cliente ha lasciato il negozio."
+}
+]

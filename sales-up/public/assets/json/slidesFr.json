@@ -1,0 +1,568 @@
+[
+  {
+    "id": 1,
+    "question": "Un client est entré dans mon magasin. Il se trouve à environ 6 mètres de moi et se dirige vers le rayon des machines à laver. Quelle est la meilleure action à entreprendre ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je le regarde, j'attends de voir s'il vient me demander quelque chose, si c'est le cas.",
+        "category": "greeting",
+        "points": 3,
+        "next": 23
+      },
+      {
+        "id": 2,
+        "text": "Pas besoin de le regarder, je continue à ranger l'étagère où je suis, je suis sûr qu'il m'a vu.",
+        "category": "greeting",
+        "points": 1,
+        "next": 23
+      },
+      {
+        "id": 3,
+        "text": "Je vais chercher mon collègue en pause.",
+        "category": "greeting",
+        "points": 0,
+        "next": 24
+      },
+      {
+        "id": 4,
+        "text": "Je m'approche du client.",
+        "category": "greeting",
+        "points": 5,
+        "next": 2
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "question": "Après avoir regardé plusieurs produits dans la zone des machines à laver, le client se dirige vers moi. Quelle est la meilleure action à entreprendre ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Rien, j'attends de voir ce que veut le client.",
+        "category": "greeting",
+        "points": 1,
+        "next": 4
+      },
+      {
+        "id": 2,
+        "text": "Je continue à ranger l'étagère où je suis, je suis sûr qu'il m'a vu.",
+        "category": "greeting",
+        "points": 1,
+        "next": 4
+      },
+      {
+        "id": 3,
+        "text": "Je vais chercher mon collègue en pause.",
+        "category": "greeting",
+        "points": 0,
+        "next": 24
+      },
+      {
+        "id": 4,
+        "text": "Je lui souris et lui demande comment je peux l'aider.",
+        "category": "greeting",
+        "points": 5,
+        "next": 5
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Je me suis absenté moins de 2 minutes. Mais pendant ce temps, le client a quitté le magasin."
+  },
+  {
+    "id": 2,
+    "question": "Je suis arrivé près du client. Il marche lentement parmi les machines à laver et lit brièvement leurs détails. Quelle est la meilleure action à entreprendre ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Je reste respectueusement derrière lui, prêt à aider si besoin.",
+        "category": "greeting",
+        "points": 1,
+        "next": 4
+      },
+      {
+        "id": "b",
+        "text": "Je me tiens à sa gauche pour qu'il puisse me remarquer.",
+        "category": "greeting",
+        "points": 1,
+        "next": 4
+      },
+      {
+        "id": "c",
+        "text": "Je m'approche de lui et le salue en souriant.",
+        "category": "greeting",
+        "points": 5,
+        "next": 3
+      },
+      {
+        "id": "d",
+        "text": "Je passe dans une allée voisine, d'où il peut me voir, et je reste à environ 3 mètres de lui, face à lui, attendant qu'il me demande, si c'est le cas.",
+        "category": "greeting",
+        "points": 3,
+        "next": 5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Le client semble intéressé par une machine à laver en particulier. Que dois-je faire ?",
+    "answers": [
+      {
+        "id": "a",
+        "text": "Je lui demande s'il a besoin d'aide avec cette machine à laver.",
+        "category": "assistance",
+        "points": 5,
+        "next": 6
+      },
+      {
+        "id": "b",
+        "text": "Je lui donne de l'espace et attends qu'il ait besoin de moi.",
+        "category": "assistance",
+        "points": 1,
+        "next": 7
+      },
+      {
+        "id": "c",
+        "text": "Je vais chercher un collègue pour qu'il l'aide.",
+        "category": "assistance",
+        "points": 0,
+        "next": 8
+      },
+      {
+        "id": "d",
+        "text": "Je commence à ranger les produits à proximité.",
+        "category": "assistance",
+        "points": 3,
+        "next": 9
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Le client a des questions sur les fonctionnalités de la machine à laver. Quelle est la meilleure façon de répondre ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui explique les fonctionnalités de base.",
+        "category": "information",
+        "points": 3,
+        "next": 10
+      },
+      {
+        "id": 2,
+        "text": "Je lui montre comment utiliser les fonctionnalités avancées.",
+        "category": "information",
+        "points": 5,
+        "next": 11
+      },
+      {
+        "id": 3,
+        "text": "Je lui donne un brochure avec les informations.",
+        "category": "information",
+        "points": 1,
+        "next": 12
+      },
+      {
+        "id": 4,
+        "text": "Je lui dis que je ne suis pas sûr et que je vais demander à un collègue.",
+        "category": "information",
+        "points": 0,
+        "next": 13
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Le client semble satisfait de mes explications. Que dois-je faire ensuite ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui demande s'il a d'autres questions.",
+        "category": "follow-up",
+        "points": 3,
+        "next": 14
+      },
+      {
+        "id": 2,
+        "text": "Je lui propose de passer à la caisse.",
+        "category": "follow-up",
+        "points": 5,
+        "next": 15
+      },
+      {
+        "id": 3,
+        "text": "Je le remercie et retourne à mes tâches.",
+        "category": "follow-up",
+        "points": 1,
+        "next": 16
+      },
+      {
+        "id": 4,
+        "text": "Je l'invite à laisser un avis sur son expérience.",
+        "category": "follow-up",
+        "points": 0,
+        "next": 17
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Le client a d'autres questions sur les machines à laver. Quelle est la meilleure façon de l'aider ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je réponds à ses questions avec patience.",
+        "category": "service",
+        "points": 5,
+        "next": 18
+      },
+      {
+        "id": 2,
+        "text": "Je lui dis que je dois vérifier quelque chose et je reviens.",
+        "category": "service",
+        "points": 3,
+        "next": 19
+      },
+      {
+        "id": 3,
+        "text": "Je lui propose de parler à un collègue plus expérimenté.",
+        "category": "service",
+        "points": 1,
+        "next": 20
+      },
+      {
+        "id": 4,
+        "text": "Je lui dis que je ne peux pas l'aider et je m'éloigne.",
+        "category": "service",
+        "points": 0,
+        "next": 21
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Le client semble très satisfait de mon aide. Que dois-je faire pour conclure la vente ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui demande s'il souhaite acheter la machine à laver.",
+        "category": "closing",
+        "points": 5,
+        "next": 22
+      },
+      {
+        "id": 2,
+        "text": "Je lui propose des accessoires supplémentaires.",
+        "category": "closing",
+        "points": 3,
+        "next": 23
+      },
+      {
+        "id": 3,
+        "text": "Je lui fais une remise spéciale.",
+        "category": "closing",
+        "points": 1,
+        "next": 24
+      },
+      {
+        "id": 4,
+        "text": "Je le remercie pour son temps et lui souhaite une bonne journée.",
+        "category": "closing",
+        "points": 0,
+        "next": 25
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "question": "Le client a décidé d'acheter la machine à laver. Quelle est la prochaine étape ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je l'accompagne à la caisse.",
+        "category": "checkout",
+        "points": 5,
+        "next": 26
+      },
+      {
+        "id": 2,
+        "text": "Je prépare la machine à laver pour la livraison.",
+        "category": "checkout",
+        "points": 3,
+        "next": 27
+      },
+      {
+        "id": 3,
+        "text": "Je lui donne des informations sur la garantie.",
+        "category": "checkout",
+        "points": 1,
+        "next": 28
+      },
+      {
+        "id": 4,
+        "text": "Je le remercie et lui souhaite une bonne journée.",
+        "category": "checkout",
+        "points": 0,
+        "next": 29
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "question": "Le client est satisfait de son achat. Que dois-je faire pour m'assurer qu'il est heureux ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui demande s'il a des questions sur son nouvel achat.",
+        "category": "follow-up",
+        "points": 3,
+        "next": 30
+      },
+      {
+        "id": 2,
+        "text": "Je lui propose un service de livraison.",
+        "category": "follow-up",
+        "points": 5,
+        "next": 31
+      },
+      {
+        "id": 3,
+        "text": "Je lui demande de laisser un avis sur son expérience.",
+        "category": "follow-up",
+        "points": 1,
+        "next": 32
+      },
+      {
+        "id": 4,
+        "text": "Je le remercie et lui souhaite une bonne journée.",
+        "category": "follow-up",
+        "points": 0,
+        "next": 33
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "question": "Le client a des questions sur l'utilisation de sa nouvelle machine à laver. Quelle est la meilleure façon de l'aider ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui explique les fonctionnalités de la machine à laver.",
+        "category": "information",
+        "points": 3,
+        "next": 34
+      },
+      {
+        "id": 2,
+        "text": "Je lui montre comment utiliser la machine à laver.",
+        "category": "information",
+        "points": 5,
+        "next": 35
+      },
+      {
+        "id": 3,
+        "text": "Je lui donne un brochure avec des instructions.",
+        "category": "information",
+        "points": 1,
+        "next": 36
+      },
+      {
+        "id": 4,
+        "text": "Je lui dis que je ne suis pas sûr et que je vais demander à un collègue.",
+        "category": "information",
+        "points": 0,
+        "next": 37
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "question": "Le client semble satisfait de mes explications. Que dois-je faire ensuite ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui demande s'il a d'autres questions.",
+        "category": "follow-up",
+        "points": 3,
+        "next": 38
+      },
+      {
+        "id": 2,
+        "text": "Je lui propose de laisser un avis sur son expérience.",
+        "category": "follow-up",
+        "points": 5,
+        "next": 39
+      },
+      {
+        "id": 3,
+        "text": "Je le remercie et retourne à mes tâches.",
+        "category": "follow-up",
+        "points": 1,
+        "next": 40
+      },
+      {
+        "id": 4,
+        "text": "Je lui souhaite une bonne journée.",
+        "category": "follow-up",
+        "points": 0,
+        "next": 41
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "question": "Le client a d'autres questions sur sa machine à laver. Quelle est la meilleure façon de l'aider ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je réponds à ses questions avec patience.",
+        "category": "service",
+        "points": 5,
+        "next": 42
+      },
+      {
+        "id": 2,
+        "text": "Je lui dis que je dois vérifier quelque chose et je reviens.",
+        "category": "service",
+        "points": 3,
+        "next": 43
+      },
+      {
+        "id": 3,
+        "text": "Je lui propose de parler à un collègue plus expérimenté.",
+        "category": "service",
+        "points": 1,
+        "next": 44
+      },
+      {
+        "id": 4,
+        "text": "Je lui dis que je ne peux pas l'aider et je m'éloigne.",
+        "category": "service",
+        "points": 0,
+        "next": 45
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "question": "Le client semble très satisfait de mon aide. Que dois-je faire pour conclure la vente ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui demande s'il souhaite acheter des accessoires pour sa machine à laver.",
+        "category": "closing",
+        "points": 5,
+        "next": 46
+      },
+      {
+        "id": 2,
+        "text": "Je lui fais une remise spéciale sur les accessoires.",
+        "category": "closing",
+        "points": 3,
+        "next": 47
+      },
+      {
+        "id": 3,
+        "text": "Je lui donne des informations sur la garantie des accessoires.",
+        "category": "closing",
+        "points": 1,
+        "next": 48
+      },
+      {
+        "id": 4,
+        "text": "Je le remercie pour son temps et lui souhaite une bonne journée.",
+        "category": "closing",
+        "points": 0,
+        "next": 49
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "question": "Le client a décidé d'acheter des accessoires pour sa machine à laver. Quelle est la prochaine étape ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je l'accompagne à la caisse.",
+        "category": "checkout",
+        "points": 5,
+        "next": 50
+      },
+      {
+        "id": 2,
+        "text": "Je prépare les accessoires pour la livraison.",
+        "category": "checkout",
+        "points": 3,
+        "next": 51
+      },
+      {
+        "id": 3,
+        "text": "Je lui donne des informations sur la garantie des accessoires.",
+        "category": "checkout",
+        "points": 1,
+        "next": 52
+      },
+      {
+        "id": 4,
+        "text": "Je le remercie et lui souhaite une bonne journée.",
+        "category": "checkout",
+        "points": 0,
+        "next": 53
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "question": "Le client est satisfait de son achat. Que dois-je faire pour m'assurer qu'il est heureux ?",
+    "answers": [
+      {
+        "id": 1,
+        "text": "Je lui demande s'il a des questions sur ses nouveaux accessoires.",
+        "category": "follow-up",
+        "points": 3,
+        "next": 54
+      },
+      {
+        "id": 2,
+        "text": "Je lui propose un service de livraison pour ses accessoires.",
+        "category": "follow-up",
+        "points": 5,
+        "next": 55
+      },
+      {
+        "id": 3,
+        "text": "Je lui demande de laisser un avis sur son expérience.",
+        "category": "follow-up",
+        "points": 1,
+        "next": 56
+      },
+      {
+        "id": 4,
+        "text": "Je le remercie et lui souhaite une bonne journée.",
+        "category": "follow-up",
+        "points": 0,
+        "next": 57
+      }
+    ]
+  },
+  {
+  "id": 21,
+  "question": "Tu as terminé une réunion de vente. Difficulté du client : oie / pro / client infernal. Félicitations !"
+},
+{
+  "id": 22,
+  "question": "Tes scores sont :"
+},
+{
+  "id": 38,
+  "question": "Aujourd'hui :"
+},
+{
+  "id": 24,
+  "question": "Je me suis absenté moins de 2 minutes. Mais pendant ce temps, le client a quitté le magasin."
+}
+
+
+]

@@ -1,6 +1,6 @@
-import React from 'react';
-import slidesData from '@/public/assets/json/slidesRo.json';
+import React, { useEffect, useState } from 'react';
 import style from './style.module.scss';
+import { useTranslation } from '@/app/context/useTranslation';
 
 interface Answer {
   id: number;
@@ -16,49 +16,71 @@ interface Slide {
   answers?: Answer[];
 }
 
-const normalizedSlides: Slide[] = (slidesData as Array<{
-  id: number | string;
-  question: string;
-  answers?: Array<{
-    id: number | string;
-    text: string;
-    category: string;
-    points: number | string;
-    next: number | string;
-  }>;
-}>).map((slide) => ({
-  id: Number(slide.id),
-  question: slide.question,
-  answers:
-    Array.isArray(slide.answers) && slide.answers.length > 0
-      ? slide.answers.map((answer) => ({
-          id: Number(answer.id),
-          text: answer.text,
-          category: answer.category,
-          points: Number(answer.points),
-          next: Number(answer.next),
-        }))
-      : undefined,
-}));
+const slidesFiles: Record<string, string> = {
+  ro: '/assets/json/slidesRo.json',
+  fr: '/assets/json/slidesFr.json',
+  de: '/assets/json/slidesDe.json',
+  it: '/assets/json/slidesIt.json',
+  es: '/assets/json/slidesEs.json',
+  en: '/assets/json/slidesEn.json',
+};
 
 const AllQuestions: React.FC = () => {
+  const { t, language } = useTranslation();
+  const [slidesData, setSlidesData] = useState<Slide[]>([]);
+
+  useEffect(() => {
+    const loadSlides = async () => {
+      const file = slidesFiles[language] || slidesFiles['ro'];
+      const res = await fetch(file);
+      const data: Slide[] = await res.json();
+      setSlidesData(data);
+    };
+    loadSlides();
+  }, [language]);
+
+  const normalizedSlides: Slide[] = (slidesData as Array<{
+    id: number | string;
+    question: string;
+    answers?: Array<{
+      id: number | string;
+      text: string;
+      category: string;
+      points: number | string;
+      next: number | string;
+    }>;
+  }>).map((slide) => ({
+    id: Number(slide.id),
+    question: slide.question,
+    answers:
+      Array.isArray(slide.answers) && slide.answers.length > 0
+        ? slide.answers.map((answer) => ({
+            id: Number(answer.id),
+            text: answer.text,
+            category: answer.category,
+            points: Number(answer.points),
+            next: Number(answer.next),
+          }))
+        : undefined,
+  }));
+
   return (
     <div className={style.container}>
       <button
         className={style.backBtn}
         onClick={() => window.location.href = '/'}
       >
-        &larr; Înapoi la pagina principală
+        &larr; {t('back_to_main')}
       </button>
-      <h1 className={style.title}>Toate întrebările și răspunsurile</h1>
+      <h1 className={style.title}>{t('all_questions_and_answers')}</h1>
       <table className={style.table}>
         <thead>
           <tr>
-            <th className={style.th}>Slide</th>
-            <th className={style.th}>Întrebare</th>
-            <th className={style.th}>Răspuns</th>
-            <th className={style.th}>Categorie</th>
-            <th className={style.th}>Puncte</th>
+            <th className={style.th}>{t('slide')}</th>
+            <th className={style.th}>{t('question')}</th>
+            <th className={style.th}>{t('answer')}</th>
+            <th className={style.th}>{t('category')}</th>
+            <th className={style.th}>{t('points')}</th>
           </tr>
         </thead>
         <tbody>
@@ -103,7 +125,7 @@ const AllQuestions: React.FC = () => {
                     <td className={style.td + ' ' + (slideIdx !== 0 ? style.questionBorder : '')}>{slide.id}</td>
                     <td className={style.td + ' ' + (slideIdx !== 0 ? style.questionBorder : '')}>{slide.question}</td>
                     <td className={style.td} colSpan={3}>
-                      (Fără răspunsuri)
+                      {t('no_answers')}
                     </td>
                   </tr>
                 )
