@@ -15,12 +15,12 @@ const formatTime = (seconds: number) => {
 };
 
 const Timer: React.FC<TimerProps> = ({ isActive, onStop, resetKey }) => {
-  const [remaining, setRemaining] = useState(600);
+  const [remaining, setRemaining] = useState(300);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const wasActive = useRef(false);
 
   useEffect(() => {
-    setRemaining(600);
+    setRemaining(300);
   }, [resetKey]);
 
   useEffect(() => {

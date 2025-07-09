@@ -59,8 +59,8 @@ const Register = () => {
       setError(profileError.message);
       return;
     }
-    // Registration successful, prompt user to log in
-    window.location.href = '/registration';
+    await supabase.auth.signOut();
+    window.location.href = '/';
   };
 
   return (
@@ -72,7 +72,7 @@ const Register = () => {
         buttonText={t('register')}
         renderFields={() => (
           <>
-            {/* First Name */}
+
             {focusedField === 'first_name' && (
               <label className={style.label} htmlFor="first_name">{t('first_name')}</label>
             )}
@@ -87,7 +87,6 @@ const Register = () => {
               required
               placeholder={focusedField !== 'first_name' ? t('first_name') : ''}
             />
-            {/* Last Name */}
             {focusedField === 'last_name' && (
               <label className={style.label} htmlFor="last_name">{t('last_name')}</label>
             )}
@@ -102,7 +101,6 @@ const Register = () => {
               required
               placeholder={focusedField !== 'last_name' ? t('last_name') : ''}
             />
-            {/* Username */}
             {focusedField === 'username' && (
               <label className={style.label} htmlFor="username">{t('username')}</label>
             )}
@@ -117,7 +115,6 @@ const Register = () => {
               required
               placeholder={focusedField !== 'username' ? t('username') : ''}
             />
-            {/* Date of Birth */}
             {focusedField === 'date_of_birth' && (
               <label className={style.label} htmlFor="date_of_birth">{t('date_of_birth')}</label>
             )}
@@ -133,7 +130,6 @@ const Register = () => {
               required
               placeholder={focusedField !== 'date_of_birth' ? t('date_of_birth') : ''}
             />
-            {/* Country */}
             {focusedField === 'country' && (
               <label className={style.label} htmlFor="country">{t('country')}</label>
             )}
@@ -148,7 +144,6 @@ const Register = () => {
               required
               placeholder={focusedField !== 'country' ? t('country') : ''}
             />
-            {/* Company */}
             {focusedField === 'company' && (
               <label className={style.label} htmlFor="company">{t('company_optional')}</label>
             )}
@@ -162,7 +157,6 @@ const Register = () => {
               onBlur={handleBlur}
               placeholder={focusedField !== 'company' ? t('company_optional') : ''}
             />
-            {/* Email */}
             {focusedField === 'email' && (
               <label className={style.label} htmlFor="email">{t('email')}</label>
             )}
@@ -178,7 +172,6 @@ const Register = () => {
               required
               placeholder={focusedField !== 'email' ? t('email') : ''}
             />
-            {/* Password */}
             {focusedField === 'password' && (
               <label className={style.label} htmlFor="password">{t('password')}</label>
             )}

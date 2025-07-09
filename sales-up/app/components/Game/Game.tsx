@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import style from './style.module.scss';
 import Timer from '../Timer/Timer';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import { useTranslation } from '@/app/context/useTranslation';
 import { supabase } from '@/utils/supabaseClient';
 import Navigation from './Navigation';
@@ -32,7 +31,6 @@ type Score = {
   total: number;
 };
 
-// Add a type for user answers
 interface UserAnswer {
   slideId: number;
   question: string;
@@ -41,7 +39,6 @@ interface UserAnswer {
   points: number;
 }
 
-// Define slide files for each language
 const slidesFiles: Record<string, string> = {
   ro: '/assets/json/slidesRo.json',
   fr: '/assets/json/slidesFr.json',
@@ -77,6 +74,7 @@ const Game = () => {
   const [elapsedTime, setElapsedTime] = useState<number | null>(null);
   const [timeUp, setTimeUp] = useState(false);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
+  const [showImage, setShowImage] = useState(true);
 
   useEffect(() => {
     const loadSlides = async () => {
@@ -100,7 +98,6 @@ const Game = () => {
     loadSlides();
   }, [language]);
 
-  // Remove all 'as any' and 'as Array<...>' casts, rely on Slide[]
   const normalizedSlides: Slide[] = slidesData.map((slide: Slide) => ({
     id: Number(slide.id),
     question: slide.question,
@@ -168,7 +165,6 @@ const Game = () => {
 
     updatedScore.total += answer.points;
 
-    // Save the user's answer
     setUserAnswers((prev) => {
       const updated = [
         ...prev,
@@ -203,7 +199,6 @@ const Game = () => {
     setUserAnswers([]);
   };
 
-  // Save session to Supabase when reaching slide 38
   useEffect(() => {
     const saveSession = async () => {
       if (currentSlide?.id !== 38) return;
@@ -212,12 +207,12 @@ const Game = () => {
       try {
         await supabase.from('user_sessions').insert([
           {
-            user_id: user.id, // or user.email if that's your PK
+            user_id: user.id,
             date: new Date().toISOString(),
             duration: elapsedTime ?? null,
             score,
             rating: getRatingLabel(score.total),
-            sales_made: null, // or calculate if you have this value
+            sales_made: null,
             game_summary: userAnswers
           }
         ]);
@@ -226,8 +221,10 @@ const Game = () => {
       }
     };
     saveSession();
-    // Only run when slide 38 is reached
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentSlide?.id]);
+
+  useEffect(() => {
+    setShowImage(true);
   }, [currentSlide?.id]);
 
   if (!currentSlide) {
@@ -241,6 +238,14 @@ const Game = () => {
       <div className={style.subContainer}>
         {Array.isArray(currentSlide.answers) && currentSlide.answers.length > 0 && (
           <Timer isActive={timerActive} onStop={handleTimerStop} resetKey={timerResetKey} />
+        )}
+        {showImage && (
+          <img
+            src={`/assets/jpg/${currentSlide.id}.jpg`}
+            alt={`Slide ${currentSlide.id}`}
+            className={style.slideImage}
+            onError={() => setShowImage(false)}
+          />
         )}
         <h2 className={style.question}>{currentSlide.question}</h2>
         {Array.isArray(currentSlide.answers) && currentSlide.answers.length > 0 ? (
@@ -295,28 +300,30 @@ const Game = () => {
               <p>{t('total_brought_to_store')}</p>
               <p>{t('your_rating')}: <strong>{getRatingLabel(score.total)}</strong></p>
               <p>{t('sales_made')}</p>
-              <table style={{ width: '100%', marginTop: 24, borderCollapse: 'collapse' }}>
-                <thead>
-                  <tr>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('slide')}</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('question')}</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('answer')}</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('category')}</th>
-                    <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('points')}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {userAnswers.map((ua, idx) => (
-                    <tr key={idx}>
-                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.slideId}</td>
-                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.question}</td>
-                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.selectedAnswer}</td>
-                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.category}</td>
-                      <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.points}</td>
+              <div className={style.responsiveTable}>
+                <table style={{ width: '100%', marginTop: 24, borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr>
+                      <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('slide')}</th>
+                      <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('question')}</th>
+                      <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('answer')}</th>
+                      <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('category')}</th>
+                      <th style={{ border: '1px solid #ccc', padding: 4 }}>{t('points')}</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {userAnswers.map((ua, idx) => (
+                      <tr key={idx}>
+                        <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.slideId}</td>
+                        <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.question}</td>
+                        <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.selectedAnswer}</td>
+                        <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.category}</td>
+                        <td style={{ border: '1px solid #ccc', padding: 4 }}>{ua.points}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
               <button className={style.btn} onClick={resetGame}>
                 {t('start_new_day')}
               </button>
@@ -350,7 +357,7 @@ const Game = () => {
           &copy; {new Date().getFullYear()}  CleanCodeIT
         </a>
         <div className={style.logo}>
-          <Image
+          <img
             src="/assets/svg/logo-cc.svg"
             alt="CleanCodeIT Logo"
             width={60}
