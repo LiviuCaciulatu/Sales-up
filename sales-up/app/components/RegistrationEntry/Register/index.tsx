@@ -18,10 +18,19 @@ const Register = () => {
     password: '',
   });
   const [error, setError] = useState('');
+  const [focusedField, setFocusedField] = useState<string | null>(null);
   const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    setFocusedField(e.target.name);
+  };
+
+  const handleBlur = () => {
+    setFocusedField(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,7 +44,6 @@ const Register = () => {
       setError(signUpError?.message || 'Registration failed');
       return;
     }
-    // Insert user profile data into the database (order: first_name, last_name, username, date_of_birth, country, company, email)
     const { error: profileError } = await supabase.from('users').insert([
       {
         first_name: form.first_name,
@@ -51,6 +59,7 @@ const Register = () => {
       setError(profileError.message);
       return;
     }
+    // Registration successful, prompt user to log in
     window.location.href = '/registration';
   };
 
@@ -63,14 +72,128 @@ const Register = () => {
         buttonText={t('register')}
         renderFields={() => (
           <>
-            <input className={style.input} name="first_name" placeholder={t('first_name')} value={form.first_name} onChange={handleChange} required />
-            <input className={style.input} name="last_name" placeholder={t('last_name')} value={form.last_name} onChange={handleChange} required />
-            <input className={style.input} name="username" placeholder={t('username')} value={form.username} onChange={handleChange} required />
-            <input className={style.input} name="date_of_birth" type="date" placeholder={t('date_of_birth')} value={form.date_of_birth} onChange={handleChange} required />
-            <input className={style.input} name="country" placeholder={t('country')} value={form.country} onChange={handleChange} required />
-            <input className={style.input} name="company" placeholder={t('company_optional')} value={form.company} onChange={handleChange} />
-            <input className={style.input} name="email" type="email" placeholder={t('email')} value={form.email} onChange={handleChange} required />
-            <input className={style.input} name="password" type="password" placeholder={t('password')} value={form.password} onChange={handleChange} required />
+            {/* First Name */}
+            {focusedField === 'first_name' && (
+              <label className={style.label} htmlFor="first_name">{t('first_name')}</label>
+            )}
+            <input
+              className={style.input}
+              id="first_name"
+              name="first_name"
+              value={form.first_name}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'first_name' ? t('first_name') : ''}
+            />
+            {/* Last Name */}
+            {focusedField === 'last_name' && (
+              <label className={style.label} htmlFor="last_name">{t('last_name')}</label>
+            )}
+            <input
+              className={style.input}
+              id="last_name"
+              name="last_name"
+              value={form.last_name}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'last_name' ? t('last_name') : ''}
+            />
+            {/* Username */}
+            {focusedField === 'username' && (
+              <label className={style.label} htmlFor="username">{t('username')}</label>
+            )}
+            <input
+              className={style.input}
+              id="username"
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'username' ? t('username') : ''}
+            />
+            {/* Date of Birth */}
+            {focusedField === 'date_of_birth' && (
+              <label className={style.label} htmlFor="date_of_birth">{t('date_of_birth')}</label>
+            )}
+            <input
+              className={style.input}
+              id="date_of_birth"
+              name="date_of_birth"
+              type="date"
+              value={form.date_of_birth}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'date_of_birth' ? t('date_of_birth') : ''}
+            />
+            {/* Country */}
+            {focusedField === 'country' && (
+              <label className={style.label} htmlFor="country">{t('country')}</label>
+            )}
+            <input
+              className={style.input}
+              id="country"
+              name="country"
+              value={form.country}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'country' ? t('country') : ''}
+            />
+            {/* Company */}
+            {focusedField === 'company' && (
+              <label className={style.label} htmlFor="company">{t('company_optional')}</label>
+            )}
+            <input
+              className={style.input}
+              id="company"
+              name="company"
+              value={form.company}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              placeholder={focusedField !== 'company' ? t('company_optional') : ''}
+            />
+            {/* Email */}
+            {focusedField === 'email' && (
+              <label className={style.label} htmlFor="email">{t('email')}</label>
+            )}
+            <input
+              className={style.input}
+              id="email"
+              name="email"
+              type="email"
+              value={form.email}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'email' ? t('email') : ''}
+            />
+            {/* Password */}
+            {focusedField === 'password' && (
+              <label className={style.label} htmlFor="password">{t('password')}</label>
+            )}
+            <input
+              className={style.input}
+              id="password"
+              name="password"
+              type="password"
+              value={form.password}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              required
+              placeholder={focusedField !== 'password' ? t('password') : ''}
+            />
           </>
         )}
         formClassName={style.form}
