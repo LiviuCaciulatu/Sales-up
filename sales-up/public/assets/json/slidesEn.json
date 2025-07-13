@@ -76,28 +76,28 @@
     "question": "I reached the customer. They are slowly walking among the washing machines, briefly reading their details. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I respectfully stand behind them, ready to help if needed.",
         "category": "greeting",
         "points": 1,
         "next": 4
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I stand to their left, so they can notice me.",
         "category": "greeting",
         "points": 1,
         "next": 4
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I approach and greet them with a smile.",
         "category": "greeting",
         "points": 5,
         "next": 3
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I come down a nearby aisle, where they can see me, and stay about 3 meters away, facing them, waiting to be asked if needed.",
         "category": "greeting",
         "points": 3,
@@ -110,28 +110,28 @@
     "question": "Despite my greeting, the customer does not look at me or respond. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I greet again, louder.",
         "category": "greeting",
         "points": 3,
         "next": 4
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I make a face at the customer.",
         "category": "greeting",
         "points": 0,
         "next": 25
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I stay put, smiling, the customer will notice me eventually. I wait for them to make eye contact.",
         "category": "greeting",
         "points": 5,
         "next": 4
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I go call my colleague from their break.",
         "category": "greeting",
         "points": 0,
@@ -144,28 +144,28 @@
     "question": "Unfortunately, the customer noticed me making a face and says they want to speak to my manager about it. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I go call my colleague from their break.",
         "category": "greeting",
         "points": 0,
         "next": 24
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I apologize, telling the customer I had a muscle cramp.",
         "category": "greeting",
         "points": 0,
         "next": 5
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I promise the customer a 3 percent discount to forget about the incident.",
         "category": "greeting",
         "points": 0,
         "next": 26
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I tell the customer they imagined it and have no real reason to talk to my manager.",
         "category": "greeting",
         "points": 0,
@@ -182,28 +182,28 @@
     "question": "The customer looks at me and greets me. I can tell from their face that they are about to ask me something. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I greet them, smile, and wait for them to say what they want.",
         "category": "greeting",
         "points": 5,
         "next": 5
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I thank them for visiting our store.",
         "category": "greeting",
         "points": 3,
         "next": 5
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I greet them and say we have a section of heavily discounted products.",
         "category": "greeting",
         "points": 1,
         "next": 27
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I nod approvingly to encourage them to say how I can help.",
         "category": "greeting",
         "points": 3,
@@ -216,28 +216,28 @@
     "question": "The customer asks for explanations about the reasons for the price reductions. I tell them the reductions happened: What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "because it's a promotional period, usually washing machines aren't bought in this season.",
         "category": "proposal",
         "points": 3,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "because we have overstocked goods that are outdated technology and can't be returned to the manufacturers.",
         "category": "proposal",
         "points": 0,
         "next": 35
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "because I assume they want a cheap product.",
         "category": "proposal",
         "points": 0,
         "next": 26
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "because these are display products with minor cosmetic defects, but are fully functional.",
         "category": "proposal",
         "points": 5,
@@ -250,28 +250,28 @@
     "question": "The customer agrees that the washing machine should be cheap and asks what I would recommend. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I recommend the lowest-priced product, Mathusitu at $599.",
         "category": "proposal",
         "points": 1,
         "next": 32
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I recommend the product with the biggest discount, Bhrilpool, $649 reduced from $899.",
         "category": "proposal",
         "points": 5,
         "next": 29
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I ask them to look among the displayed machines and pick one they like.",
         "category": "proposal",
         "points": 3,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I go call my colleague from their smoke break.",
         "category": "proposal",
         "points": 0,
@@ -284,28 +284,28 @@
     "question": "The customer asks what is the difference between the cheapest and the most expensive product.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I show them that the cheapest product, Mathusitu $599, has a faded area because it was displayed in the window.",
         "category": "proposal",
         "points": 1,
         "next": 30
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I show them that the more expensive product, Bhrilpool $649, has a dented case.",
         "category": "proposal",
         "points": 1,
         "next": 30
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I say the difference is the different power of the two machines, one has 6000 rpm and the other 7000 rpm.",
         "category": "proposal",
         "points": 3,
         "next": 30
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I go call my colleague from their break.",
         "category": "proposal",
         "points": 0,
@@ -318,28 +318,28 @@
     "question": "The customer says that, between the two machines, they would prefer the cheapest one, despite the fading.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I tell them they're wrong, 7000 rpm means better washed clothes.",
         "category": "closing",
         "points": 1,
         "next": 34
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I congratulate them for choosing Mathusitu $599 and invite them to complete the payment and delivery forms.",
         "category": "closing",
         "points": 5,
         "next": 16
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I say we have other models, maybe they like something else, and ask them to look around the store.",
         "category": "closing",
         "points": 0,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I ask if they can install it themselves, as installation is not included in the displayed price.",
         "category": "closing",
         "points": 0,
@@ -352,28 +352,28 @@
     "question": "The customer tells me they had no idea that rpm affects washing quality.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I ask them to look at other displayed models, maybe they find something more suitable.",
         "category": "proposal",
         "points": 0,
         "next": 31
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I invite them to consider the Bhrilpool model, $649, despite the dented case.",
         "category": "proposal",
         "points": 3,
         "next": 16
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I go call my colleague from their break.",
         "category": "proposal",
         "points": 0,
         "next": 24
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I say it would have been better if they had researched online before shopping.",
         "category": "proposal",
         "points": 0,
@@ -390,28 +390,28 @@
     "question": "The customer tells me the price seems right, but the displayed model has a faded part.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I give them an extra 5 percent discount because the washing machine is indeed faded.",
         "category": "result",
         "points": 1,
         "next": 33
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I say that's exactly why the washing machine is discounted.",
         "category": "result",
         "points": 3,
         "next": 16
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I ask them to look for another suitable washing machine among the promotional/discounted models.",
         "category": "result",
         "points": 1,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I say the washing machine isn't faded, it just looks that way because of the store lighting.",
         "category": "result",
         "points": 0,
@@ -424,28 +424,28 @@
     "question": "The customer accepts the offer and agrees with the final price. I take care of:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I prepare the invoice, warranty, and delivery forms, and collect payment for the equipment.",
         "category": "csus",
         "points": 0,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I warn the customer that it would be good to also purchase complementary services: professional installation, for just $49.",
         "category": "csus",
         "points": 5,
         "next": 17
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I congratulate the customer for their choice.",
         "category": "csus",
         "points": 0,
         "next": 18
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I call my colleague from their smoke break to prepare the billing and delivery forms, asking the customer to look around the store in the meantime.",
         "category": "csus",
         "points": 0,
@@ -458,28 +458,28 @@
     "question": "The customer asks me: -Which washing machine do you recommend?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I recommend a washing machine that's on promotion.",
         "category": "qualification",
         "points": 0,
         "next": 27
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I recommend the cheapest washing machine.",
         "category": "qualification",
         "points": 0,
         "next": 28
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I go call my colleague from their break.",
         "category": "qualification",
         "points": 0,
         "next": 24
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I decide to ask the customer a few questions to find out what suits them best.",
         "category": "qualification",
         "points": 5,
@@ -492,28 +492,28 @@
     "question": "To narrow down the search, I ask the customer:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "What are the criteria you want to choose by?",
         "category": "qualification",
         "points": 5,
         "next": 7
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Are you looking for a cheap washing machine?",
         "category": "qualification",
         "points": 1,
         "next": 28
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "Who makes the buying decision in your family?",
         "category": "qualification",
         "points": 0,
         "next": 11
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "What do you want your washing machine to do?",
         "category": "qualification",
         "points": 3,
@@ -530,28 +530,28 @@
     "question": "The customer replies: -I want a machine that uses little electricity and fits the limited space I have. My next statement will be:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Are you looking for a cheap washing machine?",
         "category": "qualification",
         "points": 0,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Who makes the buying decision in your family?",
         "category": "qualification",
         "points": 0,
         "next": 11
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "What does 'limited' mean? What are the dimensions?",
         "category": "qualification",
         "points": 5,
         "next": 8
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "Let me show you some good promotions we have right now.",
         "category": "qualification",
         "points": 0,
@@ -564,28 +564,28 @@
     "question": "The customer pulls out a hand-drawn sketch. The space where they want to install the washing machine is just over 40 cm deep. My next statement will be:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "So you're looking for a cheap washing machine?",
         "category": "qualification",
         "points": 0,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Who makes the buying decision in your family?",
         "category": "qualification",
         "points": 1,
         "next": 11
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I understand. Any other important selection criteria?",
         "category": "qualification",
         "points": 5,
         "next": 9
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "Let me show you some good promotions we have right now.",
         "category": "qualification",
         "points": 0,
@@ -598,28 +598,28 @@
     "question": "The customer says they have no other selection criteria. My next statement will be:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Let's recap: a cheap washing machine, max 40 cm deep, a good brand.",
         "category": "qualification",
         "points": 1,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Let's recap: an economical washing machine, max 40 cm deep, regardless of brand.",
         "category": "qualification",
         "points": 5,
         "next": 10
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "Let's recap: any washing machine that fits in that space.",
         "category": "qualification",
         "points": 3,
         "next": 10
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "Just a moment, I'll call my colleague from their smoke break.",
         "category": "qualification",
         "points": 0,
@@ -632,28 +632,28 @@
     "question": "The customer says they would prefer 'a good brand'. My next statement will be:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Perfect. Let me show you the promotions we have right now.",
         "category": "qualification",
         "points": 0,
         "next": 27
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "What does 'a good brand' mean to you?",
         "category": "qualification",
         "points": 5,
         "next": 12
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "All our washing machines are good, I assure you.",
         "category": "qualification",
         "points": 0,
         "next": 35
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "If you have problems with it, you can return it, most have a warranty.",
         "category": "qualification",
         "points": 0,
@@ -666,28 +666,28 @@
     "question": "The customer says they are not yet convinced by the information received. Since my break is approaching, I say:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "to come back to the store with the decision-maker from their family.",
         "category": "closing",
         "points": 0,
         "next": 11
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "to get more information, preferably online, about washing machines, and then come back.",
         "category": "closing",
         "points": 0,
         "next": 11
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I give them some promotional flyers with more washing machine models and ask them to study them and then return to the store.",
         "category": "closing",
         "points": 1,
         "next": 36
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "to wait, I'll call my colleague from their smoke break.",
         "category": "closing",
         "points": 0,
@@ -704,28 +704,28 @@
     "question": "The customer says that, from their perspective, 'a good brand' means it has at least a 2-year warranty and they've heard of the brand before. My next statement will be:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Perfect, all our products are well-known brands and have at least a 2-year warranty. Let me show you the best recommendations.",
         "category": "qualification",
         "points": 5,
         "next": 13
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Alright, I'll keep that in mind.",
         "category": "qualification",
         "points": 3,
         "next": 13
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "All our washing machines are good, I assure you.",
         "category": "qualification",
         "points": 1,
         "next": 35
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "What you want costs extra, just so you know.",
         "category": "qualification",
         "points": 0,
@@ -738,28 +738,28 @@
     "question": "Since I have several models in stock that meet the customer's selection criteria, I present:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "one or two washing machines that meet their criteria, priced at $749 (KlenMore) and $1,019 (Brosch)",
         "category": "proposal",
         "points": 5,
         "next": 14
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "three or four washing machines that meet their criteria: Sekikido $1,199 and EdgeStart $929, KlenMore $729 and Brosch $1,019.",
         "category": "proposal",
         "points": 3,
         "next": 35
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "the cheapest washing machine that meets their selection criteria.",
         "category": "proposal",
         "points": 0,
         "next": 32
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "the most expensive washing machine that meets their selection criteria.",
         "category": "proposal",
         "points": 3,
@@ -772,28 +772,28 @@
     "question": "The customer tells me their budget was $1,000 for this purchase.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I show them the machine with a close price, a Brosch at $1,019, with similar qualities.",
         "category": "proposal",
         "points": 5,
         "next": 15
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I show them a much cheaper machine that meets their selection criteria.",
         "category": "proposal",
         "points": 1,
         "next": 32
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I invite the customer to look for another model they find suitable in the store.",
         "category": "proposal",
         "points": 0,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I give them some promotional flyers with more washing machine models and ask them to study them and then return to the store.",
         "category": "proposal",
         "points": 1,
@@ -806,28 +806,28 @@
     "question": "After showing them the two models that fit their selection criteria:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I stay silent, not to disturb their decision process.",
         "category": "proposal",
         "points": 1,
         "next": 35
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I draw their attention to the lower price of the KlenMore model, $729.",
         "category": "proposal",
         "points": 1,
         "next": 33
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I recommend the better-known brand, Brosch at $1,019, which includes free delivery within 24 hours.",
         "category": "proposal",
         "points": 5,
         "next": 15
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I ask them to return to the store with the decision-maker to consult on the best decision.",
         "category": "proposal",
         "points": 0,
@@ -840,28 +840,28 @@
     "question": "The customer seems to lean towards the Brosch model, nodding approvingly.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I stay silent, not to disturb their decision process.",
         "category": "proposal",
         "points": 1,
         "next": 35
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I tell them I can give a 3 percent discount if they buy today.",
         "category": "proposal",
         "points": 1,
         "next": 33
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I ask if they want to know anything else before I prepare the invoice and delivery forms.",
         "category": "proposal",
         "points": 5,
         "next": 16
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I say others have bought this model and are very satisfied with its quality.",
         "category": "proposal",
         "points": 3,
@@ -874,28 +874,28 @@
     "question": "The customer is satisfied with the recommendation and agrees to complete the billing and delivery forms. I take care of:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I prepare the invoice, warranty, and delivery forms, and collect payment for the equipment.",
         "category": "csus",
         "points": 0,
         "next": 19
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I warn the customer that it would be good to also purchase complementary services: professional installation, for just $49.",
         "category": "csus",
         "points": 5,
         "next": 17
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I congratulate the customer for their choice.",
         "category": "csus",
         "points": 0,
         "next": 19
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I call my colleague from their smoke break to prepare the billing and delivery forms, asking the customer to look around the store in the meantime.",
         "category": "csus",
         "points": 0,
@@ -908,28 +908,28 @@
     "question": "The customer accepts the purchase of additional installation services.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I prepare the invoice, warranty, and delivery forms, and collect payment for the equipment and additional services sold.",
         "category": "closing",
         "points": 5,
         "next": 18
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I call my colleague from their smoke break to prepare the billing and delivery forms, asking the customer to look around the store in the meantime.",
         "category": "closing",
         "points": 0,
         "next": 24
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I ask the customer if I can help with anything else before preparing the sales forms.",
         "category": "closing",
         "points": 3,
         "next": 18
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I congratulate the customer for their purchase.",
         "category": "closing",
         "points": 1,
@@ -942,28 +942,28 @@
     "question": "I have prepared the necessary documents for the customer's order. The customer has paid.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Together with the customer, I plan the delivery of the equipment they just purchased.",
         "category": "closing",
         "points": 5,
         "next": 19
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I call my colleague from their smoke break to escort the customer to the exit.",
         "category": "closing",
         "points": 0,
         "next": 24
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I ask the customer if I can help with anything else.",
         "category": "closing",
         "points": 3,
         "next": 20
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I invite the customer to look around the store, maybe they find other opportunities.",
         "category": "closing",
         "points": 1,
@@ -976,28 +976,28 @@
     "question": "I have finished planning the delivery and installation, the customer has signed the necessary documents. I smile and say:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I'm glad you bought from us, you're the first and only customer today.",
         "category": "closing",
         "points": 0,
         "next": 20
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "You made a very good choice, how else can I help you today?",
         "category": "closing",
         "points": 3,
         "next": 20
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "Hope to see you again.",
         "category": "closing",
         "points": 3,
         "next": 20
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "It was a pleasure talking to you, I wish for more customers like you. How else can I help you?",
         "category": "closing",
         "points": 5,
@@ -1010,28 +1010,28 @@
     "question": "The customer says they are satisfied with the help received and no longer need my assistance. They head for the store exit.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "I go after the colleague who is unjustifiably late from their smoke break.",
         "category": "closing",
         "points": 0,
         "next": 21
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "I resume arranging products on the shelf, which the customer had interrupted me from.",
         "category": "closing",
         "points": 1,
         "next": 21
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "I go out for a well-deserved smoke break.",
         "category": "closing",
         "points": 0,
         "next": 21
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "I escort them and ask them to send their friends to our store if they need appliances.",
         "category": "closing",
         "points": 5,

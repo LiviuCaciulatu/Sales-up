@@ -76,28 +76,28 @@
     "question": "Am ajuns lângă client. Acesta merge agale printre mașinile de spălat și citește sumar detaliile lor. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "stau respectuos în spatele lui, să îl ajut dacă este cazul.",
         "category": "greeting",
         "points": 1,
         "next": 4
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "stau în stânga lui, să mă poată remarca.",
         "category": "greeting",
         "points": 1,
         "next": 4
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "vin în întâmpinarea lui și îl salut, zâmbindu-i.",
         "category": "greeting",
         "points": 5,
         "next": 3
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "vin pe o alee alăturată, de unde mă poate vedea, și rămân la circa 3 metri de el, cu fața către el, așteptând să mă întrebe, dacă este cazul.",
         "category": "greeting",
         "points": 3,
@@ -110,28 +110,28 @@
     "question": "În ciuda salutului meu, clientul nu se uită la mine și nici nu-mi răspunde la salut. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "mai salut odată, mai tare.",
         "category": "greeting",
         "points": 3,
         "next": 4
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "mă strâmb la client.",
         "category": "greeting",
         "points": 0,
         "next": 25
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "rămân locului, zâmbitor, clientul mă va remarca la un moment dat. Aștept ca el să stabilească contact vizual cu mine.",
         "category": "greeting",
         "points": 5,
         "next": 4
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "mă duc să îmi chem colegul din pauză.",
         "category": "greeting",
         "points": 0,
@@ -144,28 +144,28 @@
     "question": "Din nefericire, clientul a observat că mă strâmb la el și îmi spune că vrea să discute cu superiorul meu pe acest motiv. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "mă duc să îmi chem colegul din pauză.",
         "category": "greeting",
         "points": 0,
         "next": 24
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îmi cer scuze, spunând-i clientului că am avut o crampă musculară.",
         "category": "greeting",
         "points": 0,
         "next": 5
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îi promit clientului o reducere de 3 procente ca să uite de întâmplare.",
         "category": "greeting",
         "points": 0,
         "next": 26
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îi spun clientului că i s-a părut și nu are nici un motiv real pentru o discuție cu managerul meu.",
         "category": "greeting",
         "points": 0,
@@ -182,28 +182,28 @@
     "question": "Clientul se uită spre mine și mă salută. Citesc pe fața lui că urmează să mă întrebe ceva. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îl salut, îi zâmbesc și aștept să spună ce are de spus.",
         "category": "greeting",
         "points": 5,
         "next": 5
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi mulțumesc pentru vizita în magazinul nostru.",
         "category": "greeting",
         "points": 3,
         "next": 5
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îl salut și îi spun că avem o zonă de produse puternic reduse.",
         "category": "greeting",
         "points": 1,
         "next": 27
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "dau din cap în sens aprobator, pentru a-l încuraja să spună cu ce îl pot ajuta.",
         "category": "greeting",
         "points": 3,
@@ -216,28 +216,28 @@
     "question": "Clientul cere explicații pentru motivele care au dus la reducerile de preț.\nÎi spun că reducerile au apărut:\nWhat’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "pentru că este perioadă promoțională, de regulă nu se cumpără mașini de spălat în acest anotimp.",
         "category": "proposal",
         "points": 3,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "pentru că avem un stoc de marfă depășit ca tehnologie și nu îl putem returna producătorilor.",
         "category": "proposal",
         "points": 0,
         "next": 35
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "pentru că presupun că vrea un produs ieftin.",
         "category": "proposal",
         "points": 0,
         "next": 26
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "pentru că sunt produse care au fost expuse și au mici defecte estetice, dar sunt perfect funcționale.",
         "category": "proposal",
         "points": 5,
@@ -250,28 +250,28 @@
     "question": "Clientul spune că e de acord că mașină de spălat trebuie să fie ieftină, și mă întreabă ce i-aș recomanda. What’s the next best action?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îi recomand produsul cu prețul cel mai scăzut, Mathusitu la 599 dolari.",
         "category": "proposal",
         "points": 1,
         "next": 32
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi recomand produsul cu reducerea cea mai mare, Bhrilpool, 649 USD redus de la 899 USD.",
         "category": "proposal",
         "points": 5,
         "next": 29
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îl rog să se uite printre mașinile expuse, să-și aleagă una care îi place.",
         "category": "proposal",
         "points": 3,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "mă duc să-l chem pe colegul din pauza de țigară.",
         "category": "proposal",
         "points": 0,
@@ -284,28 +284,28 @@
     "question": "Clientul mă întreabă care este diferența între produsul cu prețul cel mai scăzut și cel cu prețul cel mai ridicat.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îi arăt că produsul cel mai ieftin, Mathusitu 599 USD, are o zonă decolorată, pentru că a fost expus în vitrină ",
         "category": "proposal",
         "points": 1,
         "next": 30
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi arăt că produsul mai scump, Bhrilpool 649 USD, are o deformare a carcasei ",
         "category": "proposal",
         "points": 1,
         "next": 30
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îi spun că diferența este dată de puterea diferită a celor două mașini, una având 6000 rpm iar cealaltă 7000 rpm. ",
         "category": "proposal",
         "points": 3,
         "next": 30
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "mă duc să-l chem pe colegul din pauză. ",
         "category": "proposal",
         "points": 0,
@@ -318,28 +318,28 @@
     "question": "Clientul spune că, dintre cele două mașini, ar prefera-o pe cea mai ieftină, în ciuda decolorării.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Îi spun că greșește, 7000 rpm înseamnă rufe spălate mai bine.",
         "category": "closing",
         "points": 1,
         "next": 34
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Îl felicit pentru alegerea făcută, Mathusitu 599 USD, și îl învit să facem formele de plată și livrare. ",
         "category": "closing",
         "points": 5,
         "next": 16
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "Îi spun că mai avem și alte modele, poate îi place altceva, și îl rog să se mai uite prin magazin.",
         "category": "closing",
         "points": 0,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "Îl întreb pe client dacă este capabil să o monteze singur, deoarece instalarea nu este inclusă în tariful afișat.",
         "category": "closing",
         "points": 0,
@@ -352,28 +352,28 @@
     "question": "Clientul îmi spune că nu avea habar că numărul de rotații pe minut are legătură cu calitatea spălării.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îl rog să se uite și la alte modele expuse, poate i se pare ceva mai potrivit. ",
         "category": "proposal",
         "points": 0,
         "next": 31
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îl invit să ia în calcul modelul Bhrilpool, 649 USD, în ciuda deformării carcasei.",
         "category": "proposal",
         "points": 3,
         "next": 16
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "mă duc să-l chem pe colegul din pauză. ",
         "category": "proposal",
         "points": 0,
         "next": 24
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îi spun că era mai bine dacă se informa puțin pe internet înainte de a veni la cumpărături.",
         "category": "proposal",
         "points": 0,
@@ -390,28 +390,28 @@
     "question": "Clientul îmi spune că prețul i se pare potrivit, dar modelul expus are o parte decolorată.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îi mai acord un discount de 5 procente, deoarece mașina de spălat chiar e decolorată.",
         "category": "result",
         "points": 1,
         "next": 33
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi spun că exact acela este motivul pentru care mașina de spălat se află la reducere. ",
         "category": "result",
         "points": 3,
         "next": 16
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îl rog să caute o altă mașină care i se pare potrivită printre modelele din zona promoțională/ cu reduceri.",
         "category": "result",
         "points": 1,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îi spun că mașina de spălat nu are nici o decolorare, se vede așa din cauza luminii din magazin.",
         "category": "result",
         "points": 0,
@@ -424,28 +424,28 @@
     "question": "Clientul acceptă oferta și îmi spune că e de acord cu prețul final. Mă ocup de:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "întocmesc factura, garanția și formele de livrare ale produsului, încasez contravaloarea echipamentului. ",
         "category": "csus",
         "points": 0,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îl atenționez pe client că ar fi bine să achiziționeze și serviciile complementare: instalare profesională, la doar 49 USD.",
         "category": "csus",
         "points": 5,
         "next": 17
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îl felicit pe client pentru alegerea făcută. ",
         "category": "csus",
         "points": 0,
         "next": 18
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îl chem pe colegul din pauza de țigară să întocmească formele de facturare și livrare, rugând clientul să se mai uite prin magazin în acest timp. ",
         "category": "csus",
         "points": 0,
@@ -458,28 +458,28 @@
     "question": "Clientul mi se adresează: -Ce mașină de spălat îmi poți recomanda?",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îi recomand o mașină de spălat care se află la promoție. ",
         "category": "calificare",
         "points": 0,
         "next": 27
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi recomand cea mai ieftină mașină de spălat.",
         "category": "calificare",
         "points": 0,
         "next": 28
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "mă duc să chem colegul din pauză. ",
         "category": "calificare",
         "points": 0,
         "next": 24
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "decid să-i pun clientului câteva întrebări, ca să aflu ce anume i se potrivește. ",
         "category": "calificare",
         "points": 5,
@@ -492,28 +492,28 @@
     "question": "Pentru a restrânge aria căutărilor, îl întreb pe client:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "care sunt criteriile pe care ai vrea să alegi?",
         "category": "calificare",
         "points": 5,
         "next": 7
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "cauți o mașină de spălat ieftină?",
         "category": "calificare",
         "points": 1,
         "next": 28
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "cine ia decizia de cumpărare în familia ta? ",
         "category": "calificare",
         "points": 0,
         "next": 11
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "ce anume ai vrea să facă mașina ta de spălat?",
         "category": "calificare",
         "points": 3,
@@ -530,28 +530,28 @@
     "question": "Clientul îmi răspunde: -Vreau o mașină care să consume puțin curent, și care să se potrivească cu spațiul limitat pe care îl am la dispoziție. Următoarea mea afirmație va fi, în acest caz:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "cauți o mașină de spălat ieftină?",
         "category": "calificare",
         "points": 0,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "cine ia decizia de cumpărare în familia ta?",
         "category": "calificare",
         "points": 0,
         "next": 11
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "ce înseamnă ”limitat”? Care sunt dimensiunile?",
         "category": "calificare",
         "points": 5,
         "next": 8
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "haide să-ți arăt ce promoții bune am în acest moment.",
         "category": "calificare",
         "points": 0,
@@ -564,28 +564,28 @@
     "question": "Clientul scoate din buzunar o schiță, desenată de mână. Spațiul unde vrea să instaleze mașina de spălat are puțin peste 40 de cm adâncime.Următoarea mea afirmație va fi, în acest caz:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "deci cauți o mașină de spălat ieftină?",
         "category": "calificare",
         "points": 0,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "cine ia decizia de cumpărare în familia ta?",
         "category": "calificare",
         "points": 1,
         "next": 11
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "înțeleg. Alte criterii de selecție importante?",
         "category": "calificare",
         "points": 5,
         "next": 9
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "haide să-ți arăt ce promoții bune am în acest moment.",
         "category": "calificare",
         "points": 0,
@@ -598,28 +598,28 @@
     "question": "Clientul afirmă că nu are alte criterii de selecție.Următoarea mea afirmație va fi, în acest caz:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "să recapitulăm: o mașină de spălat ieftină, de maxim 40 de cm adâncime, o marcă bună.",
         "category": "calificare",
         "points": 1,
         "next": 28
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "să recapitulăm: o mașină de spălat economică, maxim 40 de cm adâncime, indiferent de marcă.",
         "category": "calificare",
         "points": 5,
         "next": 10
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "să recapitulăm: orice mașină de spălat care încape în spațiul acela.",
         "category": "calificare",
         "points": 3,
         "next": 10
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "numai puțin, să-l chem pe colegul din pauza de țigară.",
         "category": "calificare",
         "points": 0,
@@ -632,28 +632,28 @@
     "question": "Clientul spune că ar prefera ”o marcă bună”.Următoarea mea afirmație va fi, în acest caz:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "perfect. Haide să-ți arăt ce promoții avem în această perioadă.",
         "category": "calificare",
         "points": 0,
         "next": 27
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "o marcă bună” ar însemna...?",
         "category": "calificare",
         "points": 5,
         "next": 12
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "toate mașinile noastre de spălat sunt bune, te asigur.",
         "category": "calificare",
         "points": 0,
         "next": 35
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "dacă ai probleme cu ea, te poți întoarce, majoritatea au garanție.",
         "category": "calificare",
         "points": 0,
@@ -666,28 +666,28 @@
     "question": "Clientul spune că nu e convins deocamdată de informațiile primite. Pentru că se apropie timpul când eu urmează să intru în pauză, îi spun:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "să revină în magazin cu factorul de decizie din familia sa.",
         "category": "closing",
         "points": 0,
         "next": 11
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "să se informeze mai amplu, de preferat pe internet, despre mașinile de spălat, și apoi să revină. ",
         "category": "closing",
         "points": 0,
         "next": 11
       },
       {
-        "id": "c",
+        "id": 3,
         "text": ".îi dau câteva pliante promoționale cu mai multe modele de mașini de spălat, și îl rog să le studieze și apoi să se întoarcă în magazin. ",
         "category": "closing",
         "points": 1,
         "next": 36
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "să aștepte, că îl chem pe colegul din pauza de țigară. ",
         "category": "closing",
         "points": 0,
@@ -704,28 +704,28 @@
     "question": "Clientul afirmă că, din perspectiva sa, ”o marcă bună” înseamnă că are garanție de minim 2 ani și că a auzit anterior de brandul respectiv.Următoarea mea afirmație va fi, în acest caz:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "perfect, toate produsele noastre sunt branduri cunoscute și au garanție de minim 2 ani. Haide să-ți arăt cele mai potrivite recomandări. ",
         "category": "calificare",
         "points": 5,
         "next": 13
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "în regulă, am să țin cont de această cerere a ta. ",
         "category": "calificare",
         "points": 3,
         "next": 13
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "toate mașinile noastre de spălat sunt bune, te asigur.",
         "category": "calificare",
         "points": 1,
         "next": 35
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "ceea ce vrei tu costă suplimentar, să știi.",
         "category": "calificare",
         "points": 0,
@@ -738,28 +738,28 @@
     "question": "Deoarece am pe stoc mai multe modele care corespund criteriilor de selecție ale clientului, îi prezint:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "una maxim două mașini de spălat care corespund criteriilor sale, la prețul de 749 USD (KlenMore) și 1.019 USD (Brosch) ",
         "category": "proposal",
         "points": 5,
         "next": 14
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "trei sau patru mașini de spălat care corespund criteriilor sale: Sekikido 1.199 USD și EdgeStart la 929 USD,  KlenMore la 729 USD și Brosch la 1.019 USD.",
         "category": "proposal",
         "points": 3,
         "next": 35
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "cea mai ieftină mașină de spălat care corespunde criteriilor sale de selecție. ",
         "category": "proposal",
         "points": 0,
         "next": 32
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "cea mai scumpă mașină de spălat care corespunde criteriilor sale de selecție.",
         "category": "proposal",
         "points": 3,
@@ -772,28 +772,28 @@
     "question": "Clientul îmi spune că bugetul său era de 1000 usd pentru această achiziție.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "îi prezint mașina cu un preț apropiat, un Brosch la 1019 USD, cu calități similare.",
         "category": "proposal",
         "points": 5,
         "next": 15
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi prezint o mașină mult mai ieftină, care corespunde criteriilor sale de selecție. ",
         "category": "proposal",
         "points": 1,
         "next": 32
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "invit clientul să caute un alt model care să i se pară potrivit în magazin.",
         "category": "proposal",
         "points": 0,
         "next": 31
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îi dau câteva pliante promoționale cu mai multe modele de mașini de spălat, și îl rog să se studieze și apoi să se întoarcă în magazin.",
         "category": "proposal",
         "points": 1,
@@ -806,28 +806,28 @@
     "question": "După ce i-am arătat care sunt cele două modele potrivite criteriilor sale de alegere:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "tac, să nu-l tulbur din procesul de alegere.",
         "category": "proposal",
         "points": 1,
         "next": 35
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îi atrag atenția asupra prețului mai scăzut al modelului KlenMore, 729 USD.",
         "category": "proposal",
         "points": 1,
         "next": 33
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îi recomand brandul mai cunoscut, Brosch la 1019 USD, care are livrarea gratuită inclusă, în termen de 24 de ore.",
         "category": "proposal",
         "points": 5,
         "next": 15
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îl rog să revină în magazin cu factorul de decizie pentru a se consulta asupra celei mai bune decizii. ",
         "category": "proposal",
         "points": 0,
@@ -840,28 +840,28 @@
     "question": "Clientul pare că înclină spre modelul Brosch, dă din cap aprobator.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "Tac, să nu-l tulbur din procesul de alegere.",
         "category": "proposal",
         "points": 1,
         "next": 35
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "Îi spun că îi pot face un discount de 3 procente, dacă cumpără azi.",
         "category": "proposal",
         "points": 1,
         "next": 33
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "Îl întreb dacă mai vrea să știe ceva înainte de a-i face factura și formele de livrare.",
         "category": "proposal",
         "points": 5,
         "next": 16
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îi spun că și alții au cumpărat acest model și sunt foarte mulțumiți de calitatea echipamentului.",
         "category": "proposal",
         "points": 3,
@@ -874,28 +874,28 @@
     "question": "Clientul se declară mulțumit de recomandarea făcută și acceptă încheierea formelor de facturare și livrare.Mă ocup de:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "întocmesc factura, garanția și formele de livrare ale produsului, încasez contravaloarea echipamentului. ",
         "category": "csus",
         "points": 0,
         "next": 19
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îl atenționez pe client că ar fi bine să achiziționeze și serviciile complementare: instalare profesională, la doar 49 USD. ",
         "category": "csus",
         "points": 5,
         "next": 17
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "îl felicit pe client pentru alegerea făcută.",
         "category": "csus",
         "points": 0,
         "next": 19
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îl chem pe colegul din pauza de țigară să întocmească formele de facturare și livrare, rugând clientul să se mai uite prin magazin în acest timp.",
         "category": "csus",
         "points": 0,
@@ -908,28 +908,28 @@
     "question": "Clientul acceptă achiziția serviciilor suplimentare de instalare.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "întocmesc factura, garanția și formele de livrare ale produsului, încasez contravaloarea echipamentului și a serviciilor suplimentare vândute.",
         "category": "closing",
         "points": 5,
         "next": 18
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îl chem pe colegul din pauza de țigară să întocmească formele de facturare și livrare, rugând clientul să se mai uite prin magazin în acest timp.",
         "category": "closing",
         "points": 0,
         "next": 24
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "întreb clientul dacă îl mai pot ajuta cu ceva înainte de a întocmi formele de vânzare",
         "category": "closing",
         "points": 3,
         "next": 18
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îl felicit pe client pentru achiziția făcută.",
         "category": "closing",
         "points": 1,
@@ -942,28 +942,28 @@
     "question": "Am întocmit actele necesare facturării comenzii clientului. Clientul a achitat.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "împreună cu clientul, planific livrarea echipamentelor pe care tocmai le-a achiziționat. ",
         "category": "closing",
         "points": 5,
         "next": 19
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "îl chem pe colegul din pauza de țigară să conducă clientul la ieșire.",
         "category": "closing",
         "points": 0,
         "next": 24
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "întreb clientul cu ce îi mai pot fi de folos. ",
         "category": "closing",
         "points": 3,
         "next": 20
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "invit clientul să se mai uite prin magazin, poate mai găsește și alte oportunități. ",
         "category": "closing",
         "points": 1,
@@ -976,28 +976,28 @@
     "question": "Am terminat cu planificarea livrării și instalării, clientul a semnat documentele necesare. Îi zâmbesc și îi spun:",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "mă bucur că ai cumpărat de la noi, ești primul și singurul client pe ziua de astăzi.",
         "category": "closing",
         "points": 0,
         "next": 20
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "ai făcut o alegere foarte bună, cu ce mai pot să te ajut astăzi?",
         "category": "closing",
         "points": 3,
         "next": 20
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "te mai aștept pe la noi. ",
         "category": "closing",
         "points": 3,
         "next": 20
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "a fost o plăcere să discut cu tine, îmi doresc cât mai mulți clienți așa ca tine. Cu ce te mai pot ajuta?",
         "category": "closing",
         "points": 5,
@@ -1010,28 +1010,28 @@
     "question": "Clientul spune că este mulțumit de ajutorul primit și nu mai este necesar ajutor din partea mea. Se îndreaptă spre ieșirea din magazin.",
     "answers": [
       {
-        "id": "a",
+        "id": 1,
         "text": "mă duc după colegul care întârzie nejustificat în pauza de țigară.",
         "category": "closing",
         "points": 0,
         "next": 21
       },
       {
-        "id": "b",
+        "id": 2,
         "text": "reiau aranjarea produselor la raft, din care mă întrerupsese clientul.",
         "category": "closing",
         "points": 1,
         "next": 21
       },
       {
-        "id": "c",
+        "id": 3,
         "text": "ies într-o binemeritată pauză de țigară.",
         "category": "closing",
         "points": 0,
         "next": 21
       },
       {
-        "id": "d",
+        "id": 4,
         "text": "îl însoțesc și îl rog să-mi trimită și prietenii săi în magazin, dacă au nevoie de produse electrocasnice.",
         "category": "closing",
         "points": 5,

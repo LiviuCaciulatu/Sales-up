@@ -75,6 +75,35 @@ const Game = () => {
   const [timeUp, setTimeUp] = useState(false);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [showImage, setShowImage] = useState(true);
+  const [proposal, setProposal] = useState<number | null>(null);
+  const [sale, setSale] = useState<number | null>(null);
+  const [numberOfSales, setNumberOfSales] = useState<number>(0);
+
+  const proposalRules = [
+    { questionId: 28, answerId: 1, action: 'set', value: 599 },
+    { questionId: 28, answerId: 2, action: 'set', value: 649 },
+    { questionId: 29, answerId: 1, action: 'set', value: 599 },
+    { questionId: 29, answerId: 2, action: 'set', value: 649 },
+    { questionId: 30, answerId: 2, action: 'set', value: 599 },
+    { questionId: 34, answerId: 2, action: 'set', value: 649 },
+    { questionId: 13, answerId: 3, action: 'set', value: 599 },
+    { questionId: 37, answerId: 1, action: 'set', value: 1019 },
+    { questionId: 37, answerId: 2, action: 'set', value: 599 },
+    { questionId: 14, answerId: 2, action: 'set', value: 729 },
+    { questionId: 14, answerId: 3, action: 'set', value: 1019 },
+    { questionId: 33, answerId: 2, action: 'add', value: 49 },
+    { questionId: 16, answerId: 2, action: 'add', value: 49 },
+    { questionId: 32, answerId: 2, action: 'subtract_percent', value: 5 },
+    { questionId: 15, answerId: 2, action: 'subtract_percent', value: 3 },
+  ];
+
+  const saleRules = [
+    { questionId: 16, answerId: 1 },
+    { questionId: 16, answerId: 3 },
+    { questionId: 17, answerId: 1 },
+    { questionId: 17, answerId: 3 },
+    { questionId: 17, answerId: 4 },
+  ];
 
   useEffect(() => {
     const loadSlides = async () => {
@@ -94,6 +123,7 @@ const Game = () => {
       setElapsedTime(null);
       setTimeUp(false);
       setUserAnswers([]);
+      setProposal(null);
     };
     loadSlides();
   }, [language]);
@@ -145,6 +175,24 @@ const Game = () => {
 
   const handleAnswerClick = (answer: Answer) => {
     setTimeUp(false);
+    proposalRules.forEach(rule => {
+      if (currentId === rule.questionId && answer.id === rule.answerId) {
+        if (rule.action === 'set') {
+          setProposal(rule.value);
+        } else if (rule.action === 'add') {
+          setProposal(prev => (prev ?? 0) + rule.value);
+        } else if (rule.action === 'subtract_percent') {
+          setProposal(prev => prev !== null ? Math.round(prev * (1 - rule.value / 100)) : prev);
+        }
+      }
+    });
+
+    saleRules.forEach(rule => {
+      if (currentId === rule.questionId && answer.id === rule.answerId) {
+        setSale(prev => (prev ?? 0) + (proposal ?? 0));
+        setNumberOfSales(prev => prev + 1);
+      }
+    });
     if (
       normalizedSlides.find((slide) => slide.id === answer.next)?.answers === undefined &&
       elapsedTime === null
@@ -197,31 +245,58 @@ const Game = () => {
     setElapsedTime(null);
     setTimeUp(false);
     setUserAnswers([]);
+    setProposal(null);
   };
 
-  useEffect(() => {
-    const saveSession = async () => {
-      if (currentSlide?.id !== 38) return;
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
-      try {
-        await supabase.from('user_sessions').insert([
-          {
-            user_id: user.id,
-            date: new Date().toISOString(),
-            duration: elapsedTime ?? null,
-            score,
-            rating: getRatingLabel(score.total),
-            sales_made: null,
-            game_summary: userAnswers
-          }
-        ]);
-      } catch (e) {
-        console.error('Failed to save session:', e);
-      }
-    };
-    saveSession();
-  }, [currentSlide?.id]);
+  const resetGameAndSales = () => {
+    resetGame();
+    setNumberOfSales(0);
+    setSale(0);
+  };
+
+  const updateSalesInDatabase = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    const { data: salesData, error: salesError } = await supabase
+      .from('users')
+      .select('number_of_sales, total_sales')
+      .eq('id', user.id)
+      .single();
+    if (salesError) return;
+    const dbSales = typeof salesData?.number_of_sales === 'number' ? salesData.number_of_sales : 0;
+    const newTotalSalesCount = dbSales + numberOfSales;
+    await supabase
+      .from('users')
+      .update({ number_of_sales: newTotalSalesCount })
+      .eq('id', user.id);
+    const dbTotalSales = typeof salesData?.total_sales === 'number' ? salesData.total_sales : 0;
+    const newTotalSalesValue = dbTotalSales + (sale ?? 0);
+    await supabase
+      .from('users')
+      .update({ total_sales: newTotalSalesValue })
+      .eq('id', user.id);
+  };
+
+  const saveSession = async () => {
+    if (currentSlide?.id !== 38 && currentSlide?.id !== 22) return;
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    try {
+      await supabase.from('user_sessions').insert([
+        {
+          user_id: user.id,
+          date: new Date().toISOString(),
+          duration: elapsedTime ?? null,
+          score,
+          rating: getRatingLabel(score.total),
+          sales_made: sale,
+          game_summary: userAnswers
+        }
+      ]);
+    } catch (e) {
+      console.error('Failed to save session:', e);
+    }
+  };
 
   useEffect(() => {
     setShowImage(true);
@@ -289,7 +364,7 @@ const Game = () => {
               <button className={style.btn} onClick={resetGame}>
                 {t('start_over')}
               </button>
-              <button className={style.btn} onClick={() => setCurrentId(38)}>
+              <button className={style.btn} onClick={async () => { await saveSession(); setCurrentId(38); }}>
                 {t('close_the_day')}
               </button>
             </div>
@@ -297,9 +372,9 @@ const Game = () => {
         ) : currentSlide.id === 38 ? (
           <div className={style.points}>
             <div className={style.pointsContainer}>
-              <p>{t('total_brought_to_store')}</p>
+              <p>{t('total_brought_to_store').replace('...', String(sale !== null ? sale : '0'))}</p>
               <p>{t('your_rating')}: <strong>{getRatingLabel(score.total)}</strong></p>
-              <p>{t('sales_made')}</p>
+              <p>{t('sales_made').replace('...', String(numberOfSales))}</p>
               <div className={style.responsiveTable}>
                 <table style={{ width: '100%', marginTop: 24, borderCollapse: 'collapse' }}>
                   <thead>
@@ -324,12 +399,12 @@ const Game = () => {
                   </tbody>
                 </table>
               </div>
-              <button className={style.btn} onClick={resetGame}>
-                {t('start_new_day')}
-              </button>
-              <button className={style.btn} onClick={() => router.push('/menu')}>
-                {t('menu')}
-              </button>
+              <button className={style.btn} onClick={resetGameAndSales}>
+              {t('start_over')}
+            </button>
+            <button className={style.btn} onClick={() => router.push('/menu')}>
+              {t('menu')}
+            </button>
             </div>
           </div>
         ) : (
@@ -337,10 +412,10 @@ const Game = () => {
             <button className={style.btn} onClick={() => setCurrentId(22)}>
               {t('calculate_score')}
             </button>
-            <button className={style.btn} onClick={resetGame}>
+            <button className={style.btn} onClick={resetGameAndSales}>
               {t('start_over')}
             </button>
-            <button className={style.btn} onClick={() => setCurrentId(38)}>
+            <button className={style.btn} onClick={async () => { await saveSession(); setCurrentId(38); updateSalesInDatabase(); }}>
               {t('close_the_day')}
             </button>
           </div>

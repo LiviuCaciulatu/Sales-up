@@ -46,6 +46,7 @@ const Register = () => {
     }
     const { error: profileError } = await supabase.from('users').insert([
       {
+        id: data.user.id, // Set id to the authenticated user's UUID
         first_name: form.first_name,
         last_name: form.last_name,
         username: form.username,
@@ -53,6 +54,7 @@ const Register = () => {
         country: form.country,
         company: form.company || null,
         email: form.email,
+        total_sales: 0,
       },
     ]);
     if (profileError) {

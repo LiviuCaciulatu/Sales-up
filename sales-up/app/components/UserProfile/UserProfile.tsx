@@ -6,14 +6,11 @@ import { useTranslation } from '@/app/context/useTranslation';
 import { supabase } from '@/utils/supabaseClient';
 import style from '../Start/style.module.scss';
 
-// Supabase Auth user (from supabase.auth.getUser())
 interface AuthUser {
   id: string;
   email: string;
-  // ...other fields if needed
 }
 
-// users table
 interface UserProfileData {
   id: number;
   first_name: string;
@@ -25,7 +22,6 @@ interface UserProfileData {
   email: string;
 }
 
-// Structure of a single answered question in game_summary
 interface UserAnswer {
   slideId: number;
   question: string;
@@ -34,7 +30,6 @@ interface UserAnswer {
   points: number;
 }
 
-// user_sessions table
 interface UserSession {
   id: number;
   user_id: string;
@@ -69,15 +64,13 @@ const UserProfile: React.FC = () => {
         const { data: profileData, error } = await supabase
           .from('users')
           .select('id, first_name, last_name, username, date_of_birth, country, company, email')
-          .eq('email', user.email)
-          .limit(1)
+          .eq('id', user.id)
           .single();
         if (error) {
           console.error('Supabase error:', error);
         }
         setProfile(profileData as UserProfileData);
         if (profileData) {
-          // Fetch user sessions (user_id is uuid, so use user.id from auth)
           const { data: sessionsData, error: sessionsError } = await supabase
             .from('user_sessions')
             .select('*')
